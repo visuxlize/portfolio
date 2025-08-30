@@ -21,33 +21,6 @@ A modern, responsive portfolio website showcasing Andres Marte's work as a softw
 - **Lucide React** - Beautiful icons
 - **React Intersection Observer** - Scroll-based animations
 
-## 📋 Prerequisites
-
-Before you begin, ensure you have the following installed:
-- Node.js (version 16 or higher)
-- npm or yarn package manager
-
-## 🛠️ Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/visuxlize/portfolio.git
-   cd portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000` to view the website
-
 ## 📁 Project Structure
 
 ```
@@ -74,38 +47,6 @@ The color scheme can be customized in `tailwind.config.js`:
 - Secondary colors: Gray scale
 - Accent colors: Purple/pink gradient
 
-### Content
-Update the following files to customize content:
-- `src/components/Hero.tsx` - Hero section content
-- `src/components/ProjectsCarousel.tsx` - Project details
-- `src/components/About.tsx` - Personal information
-- `src/components/Skills.tsx` - Skills and expertise
-- `src/components/Resume.tsx` - Experience and education
-- `src/components/Contact.tsx` - Contact information
-
-### Images
-Replace placeholder images with your own:
-- Profile photo in About section
-- Project images in ProjectsCarousel
-- Add your resume PDF to the public folder
-
-## 🚀 Deployment to GitHub Pages
-
-1. **Build the project**
-   ```bash
-   npm run build
-   ```
-
-2. **Deploy to GitHub Pages**
-   ```bash
-   npm run deploy
-   ```
-
-3. **Configure GitHub Pages**
-   - Go to your repository settings
-   - Navigate to "Pages" section
-   - Select "gh-pages" branch as source
-   - Your site will be available at `https://visuxlize.github.io/portfolio`
 
 ## 📱 Responsive Design
 
@@ -142,20 +83,12 @@ The website is fully responsive and optimized for:
 - `npm run eject` - Ejects from Create React App
 - `npm run deploy` - Deploys to GitHub Pages
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ## 📞 Contact
 
 Andres Marte
 - Email: andres.marte@example.com
 - GitHub: [@visuxlize](https://github.com/visuxlize)
-- LinkedIn: [Andres Marte](https://linkedin.com/in/andres-marte)
+- LinkedIn: [Andres Marte](https://www.linkedin.com/in/andres-marte-95438217b/)
 
 ---
 
