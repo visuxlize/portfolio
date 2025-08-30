@@ -88,7 +88,7 @@ The website is fully responsive and optimized for:
 Andres Marte
 - Email: andres.marte@example.com
 - GitHub: [@visuxlize](https://github.com/visuxlize)
-- LinkedIn: [Andres Marte]([https://linkedin.com/in/andres-marte](https://www.linkedin.com/in/andres-marte-95438217b/))
+- LinkedIn: [Andres Marte](https://www.linkedin.com/in/andres-marte-95438217b/)
 
 ---
 
