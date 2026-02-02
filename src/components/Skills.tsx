@@ -18,40 +18,40 @@ const Skills: React.FC = () => {
 
   const skills: Skill[] = [
     // Programming Languages
-    { name: 'JavaScript', level: 90, category: 'Programming', icon: '⚡', color: 'from-yellow-400 to-orange-500' },
-    { name: 'TypeScript', level: 85, category: 'Programming', icon: '🔷', color: 'from-blue-500 to-blue-600' },
-    { name: 'Python', level: 80, category: 'Programming', icon: '🐍', color: 'from-green-500 to-blue-500' },
-    { name: 'Swift', level: 70, category: 'Programming', icon: '🍎', color: 'from-orange-500 to-red-500' },
-    { name: 'HTML5/CSS3', level: 95, category: 'Programming', icon: '🌐', color: 'from-orange-500 to-pink-500' },
-    { name: 'SQL', level: 78, category: 'Programming', icon: '🗄️', color: 'from-blue-500 to-purple-500' },
+    { name: 'JavaScript', level: 90, category: 'Programming', icon: '⚡', color: 'from-amber-400 to-amber-500' },
+    { name: 'TypeScript', level: 85, category: 'Programming', icon: '🔷', color: 'from-slate-500 to-slate-600' },
+    { name: 'Python', level: 80, category: 'Programming', icon: '🐍', color: 'from-accent-500 to-slate-500' },
+    { name: 'Swift', level: 70, category: 'Programming', icon: '🍎', color: 'from-amber-500 to-rose-400' },
+    { name: 'HTML5/CSS3', level: 95, category: 'Programming', icon: '🌐', color: 'from-amber-400 to-rose-400' },
+    { name: 'SQL', level: 78, category: 'Programming', icon: '🗄️', color: 'from-slate-500 to-slate-600' },
 
     // Frameworks & Libraries
-    { name: 'React', level: 88, category: 'Programming', icon: '⚛️', color: 'from-cyan-400 to-blue-500' },
-    { name: 'Node.js', level: 82, category: 'Programming', icon: '🟢', color: 'from-green-500 to-green-600' },
-    { name: 'Express.js', level: 80, category: 'Programming', icon: '🚂', color: 'from-gray-600 to-gray-700' },
-    { name: 'Tailwind CSS', level: 90, category: 'Programming', icon: '🎨', color: 'from-teal-400 to-cyan-500' },
-    { name: 'Bootstrap', level: 85, category: 'Programming', icon: '🅱️', color: 'from-purple-500 to-purple-600' },
-    { name: 'Material-UI', level: 82, category: 'Programming', icon: '🎭', color: 'from-blue-400 to-blue-600' },
+    { name: 'React', level: 88, category: 'Programming', icon: '⚛️', color: 'from-accent-400 to-slate-500' },
+    { name: 'Node.js', level: 82, category: 'Programming', icon: '🟢', color: 'from-emerald-500 to-emerald-600' },
+    { name: 'Express.js', level: 80, category: 'Programming', icon: '🚂', color: 'from-slate-600 to-slate-700' },
+    { name: 'Tailwind CSS', level: 90, category: 'Programming', icon: '🎨', color: 'from-accent-400 to-accent-500' },
+    { name: 'Bootstrap', level: 85, category: 'Programming', icon: '🅱️', color: 'from-slate-500 to-accent-500' },
+    { name: 'Material-UI', level: 82, category: 'Programming', icon: '🎭', color: 'from-slate-400 to-slate-600' },
 
     // Design Tools
-    { name: 'Figma', level: 90, category: 'Design', icon: '🎨', color: 'from-purple-500 to-pink-500' },
-    { name: 'Adobe XD', level: 85, category: 'Design', icon: '🎯', color: 'from-pink-500 to-purple-500' },
-    { name: 'Photoshop', level: 88, category: 'Design', icon: '🖼️', color: 'from-blue-500 to-blue-700' },
-    { name: 'Illustrator', level: 82, category: 'Design', icon: '✏️', color: 'from-orange-500 to-yellow-500' },
-    { name: 'After Effects', level: 75, category: 'Design', icon: '🎬', color: 'from-purple-600 to-blue-600' },
-    { name: 'Premiere Pro', level: 78, category: 'Design', icon: '🎥', color: 'from-purple-500 to-pink-600' },
+    { name: 'Figma', level: 90, category: 'Design', icon: '🎨', color: 'from-slate-500 to-rose-400' },
+    { name: 'Adobe XD', level: 85, category: 'Design', icon: '🎯', color: 'from-rose-400 to-slate-500' },
+    { name: 'Photoshop', level: 88, category: 'Design', icon: '🖼️', color: 'from-slate-500 to-slate-700' },
+    { name: 'Illustrator', level: 82, category: 'Design', icon: '✏️', color: 'from-amber-500 to-amber-400' },
+    { name: 'After Effects', level: 75, category: 'Design', icon: '🎬', color: 'from-slate-600 to-slate-600' },
+    { name: 'Premiere Pro', level: 78, category: 'Design', icon: '🎥', color: 'from-slate-500 to-rose-400' },
 
     // Tools & Platforms
-    { name: 'Git/GitHub', level: 88, category: 'Tools', icon: '📚', color: 'from-gray-600 to-gray-800' },
-    { name: 'VS Code', level: 92, category: 'Tools', icon: '💻', color: 'from-blue-500 to-blue-600' },
-    { name: 'npm', level: 85, category: 'Tools', icon: '📦', color: 'from-red-500 to-red-600' },
-    { name: 'Vercel', level: 80, category: 'Tools', icon: '▲', color: 'from-black to-gray-800' },
-    { name: 'Postman', level: 82, category: 'Tools', icon: '📮', color: 'from-orange-500 to-orange-600' },
+    { name: 'Git/GitHub', level: 88, category: 'Tools', icon: '📚', color: 'from-slate-600 to-slate-800' },
+    { name: 'VS Code', level: 92, category: 'Tools', icon: '💻', color: 'from-slate-500 to-slate-600' },
+    { name: 'npm', level: 85, category: 'Tools', icon: '📦', color: 'from-rose-400 to-rose-500' },
+    { name: 'Vercel', level: 80, category: 'Tools', icon: '▲', color: 'from-slate-800 to-slate-700' },
+    { name: 'Postman', level: 82, category: 'Tools', icon: '📮', color: 'from-amber-500 to-amber-600' },
 
     // Cybersecurity
-    { name: 'Network Security', level: 75, category: 'Cybersecurity', icon: '🛡️', color: 'from-red-500 to-red-600' },
-    { name: 'Ethical Hacking', level: 70, category: 'Cybersecurity', icon: '🔐', color: 'from-green-600 to-green-700' },
-    { name: 'Secure Coding', level: 80, category: 'Cybersecurity', icon: '🔒', color: 'from-blue-600 to-blue-700' },
+    { name: 'Network Security', level: 75, category: 'Cybersecurity', icon: '🛡️', color: 'from-rose-400 to-rose-500' },
+    { name: 'Ethical Hacking', level: 70, category: 'Cybersecurity', icon: '🔐', color: 'from-emerald-600 to-emerald-700' },
+    { name: 'Secure Coding', level: 80, category: 'Cybersecurity', icon: '🔒', color: 'from-slate-600 to-slate-700' },
   ];
 
   const categories = ['Programming', 'Design', 'Tools', 'Cybersecurity'];
@@ -67,7 +67,7 @@ const Skills: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -87,7 +87,7 @@ const Skills: React.FC = () => {
               key={category}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
@@ -100,7 +100,7 @@ const Skills: React.FC = () => {
                     key={skill.name}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: skillIndex * 0.1 }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: skillIndex * 0.1 }}
                     viewport={{ once: true }}
                     className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
                   >
@@ -118,7 +118,7 @@ const Skills: React.FC = () => {
                         className={`h-2 rounded-full bg-gradient-to-r ${skill.color}`}
                         initial={{ width: 0 }}
                         animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: skillIndex * 0.1 }}
                       />
                     </div>
                   </motion.div>
@@ -132,7 +132,7 @@ const Skills: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
@@ -150,7 +150,7 @@ const Skills: React.FC = () => {
                 key={skill}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
                 viewport={{ once: true }}
                 className="px-4 py-2 bg-white rounded-lg border border-secondary-200 text-sm text-secondary-700 hover:border-primary-300 hover:text-primary-700 transition-colors duration-200"
               >
@@ -164,7 +164,7 @@ const Skills: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
@@ -187,7 +187,7 @@ const Skills: React.FC = () => {
                   key={tech.name}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm"
                 >

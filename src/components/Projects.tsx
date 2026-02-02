@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
       icon: <Heart className="w-12 h-12" />,
       technologies: ["React", "Node.js", "Express", "MongoDB", "TypeScript"],
       githubUrl: "https://github.com/visuxlize/therapick-app",
-      gradient: "from-blue-500 via-blue-600 to-cyan-600",
+      gradient: "from-slate-500 via-slate-600 to-accent-600",
       stats: [
         { label: "Search Reduction", value: "70%" },
         { label: "Stack", value: "Full-Stack" }
@@ -36,7 +36,7 @@ const Projects: React.FC = () => {
       icon: <Baby className="w-12 h-12" />,
       technologies: ["Flutter", "Dart", "Firebase", "Data Visualization"],
       githubUrl: "https://github.com/visuxlize/ostome-app",
-      gradient: "from-purple-500 via-purple-600 to-pink-600",
+      gradient: "from-slate-500 via-slate-600 to-rose-400",
       stats: [
         { label: "Platform", value: "Mobile" },
         { label: "Focus", value: "Pediatric" }
@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
       icon: <Palette className="w-12 h-12" />,
       technologies: ["JavaScript", "HTML5", "CSS3", "Responsive Design"],
       githubUrl: "https://github.com/visuxlize/NCMRedesign",
-      gradient: "from-gray-600 via-gray-700 to-gray-900",
+      gradient: "from-slate-600 via-slate-700 to-slate-900",
       stats: [
         { label: "Mobile Improvement", value: "60%" },
         { label: "Performance", value: "40% faster" }
@@ -63,7 +63,7 @@ const Projects: React.FC = () => {
       technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://visuxlize.github.io/portfolio/",
       githubUrl: "https://github.com/visuxlize/portfolio",
-      gradient: "from-teal-500 via-cyan-600 to-blue-600",
+      gradient: "from-accent-500 via-accent-600 to-slate-600",
       stats: [
         { label: "Lighthouse", value: "95+" },
         { label: "Framework", value: "React" }
@@ -78,7 +78,7 @@ const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -98,7 +98,7 @@ const Projects: React.FC = () => {
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group relative"
             >
@@ -108,7 +108,7 @@ const Projects: React.FC = () => {
                   <div className="absolute inset-0 bg-black opacity-10"></div>
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="relative text-white z-10"
                   >
                     {project.icon}
@@ -191,7 +191,7 @@ const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           viewport={{ once: true }}
           className="text-center mt-12"
         >
@@ -200,6 +200,7 @@ const Projects: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             whileTap={{ scale: 0.95 }}
             className="button-primary inline-flex items-center space-x-2"
           >

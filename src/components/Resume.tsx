@@ -94,7 +94,7 @@ const Resume: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -111,7 +111,7 @@ const Resume: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
@@ -126,7 +126,7 @@ const Resume: React.FC = () => {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="bg-gradient-to-r from-secondary-50 to-white rounded-2xl p-6 border-l-4 border-primary-500"
                 >
@@ -168,7 +168,7 @@ const Resume: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
             className="space-y-8"
           >
@@ -185,7 +185,7 @@ const Resume: React.FC = () => {
                     key={index}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="bg-white rounded-xl p-4 shadow-sm border border-secondary-200 hover:shadow-md transition-shadow duration-200"
                   >
@@ -217,7 +217,7 @@ const Resume: React.FC = () => {
                     key={index}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-4"
                   >
@@ -235,7 +235,7 @@ const Resume: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl p-6 text-white"
             >

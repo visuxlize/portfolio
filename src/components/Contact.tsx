@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 shadow-xl"
           >
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-12"
               >
-                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
                 <h4 className="text-xl font-bold text-secondary-900 mb-2">Message Sent!</h4>
                 <p className="text-secondary-600">Thank you for reaching out. I'll get back to you soon!</p>
               </motion.div>
@@ -202,7 +202,7 @@ const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
             className="space-y-8"
           >
@@ -216,7 +216,7 @@ const Contact: React.FC = () => {
                     href={info.link}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
                   >
@@ -242,7 +242,7 @@ const Contact: React.FC = () => {
                     rel="noopener noreferrer"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.1, y: -2 }}
                     className={`w-12 h-12 bg-secondary-200 text-secondary-700 rounded-full flex items-center justify-center transition-all duration-200 ${social.color} hover:text-white`}
@@ -257,7 +257,7 @@ const Contact: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               viewport={{ once: true }}
               className="bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl p-6 text-white"
             >
@@ -267,15 +267,15 @@ const Contact: React.FC = () => {
               </p>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
                   <span className="text-sm">Available for internships</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
                   <span className="text-sm">Open to remote opportunities</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
                   <span className="text-sm">Actively building projects</span>
                 </div>
               </div>

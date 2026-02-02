@@ -14,9 +14,70 @@ const Hero: React.FC = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-accent-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-secondary-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '4s' }}></div>
+        <motion.div
+          animate={{
+            x: [0, 60, -40, 30, 0],
+            y: [0, -60, 40, -20, 0],
+          }}
+          transition={{
+            duration: 18,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          className="absolute top-20 left-10 w-72 h-72 bg-primary-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+        />
+        <motion.div
+          animate={{
+            x: [0, -70, 50, -30, 0],
+            y: [0, 50, -40, 30, 0],
+          }}
+          transition={{
+            duration: 23,
+            ease: "easeInOut",
+            repeat: Infinity,
+            delay: 2,
+          }}
+          className="absolute top-40 right-10 w-72 h-72 bg-accent-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+        />
+        <motion.div
+          animate={{
+            x: [0, 40, -60, 20, 0],
+            y: [0, -50, 60, -30, 0],
+          }}
+          transition={{
+            duration: 21,
+            ease: "easeInOut",
+            repeat: Infinity,
+            delay: 4,
+          }}
+          className="absolute -bottom-8 left-20 w-72 h-72 bg-secondary-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+        />
+        <motion.div
+          animate={{
+            x: [0, -50, 40, -25, 0],
+            y: [0, 40, -35, 50, 0],
+          }}
+          transition={{
+            duration: 25,
+            ease: "easeInOut",
+            repeat: Infinity,
+            delay: 1,
+          }}
+          className="absolute top-1/3 left-1/4 w-64 h-64 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-60"
+        />
+        <motion.div
+          animate={{
+            x: [0, 55, -45, 35, 0],
+            y: [0, -45, 55, -25, 0],
+          }}
+          transition={{
+            duration: 20,
+            ease: "easeInOut",
+            repeat: Infinity,
+            delay: 6,
+          }}
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-60"
+        />
       </div>
 
       <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10">
@@ -25,7 +86,7 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-6"
           >
             <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
@@ -37,7 +98,7 @@ const Hero: React.FC = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
             <span className="gradient-text">Andres Marte</span>
@@ -47,7 +108,7 @@ const Hero: React.FC = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="text-2xl md:text-3xl text-secondary-600 mb-8 font-medium"
           >
             Full-Stack Developer | UX/UI Designer | Photographer
@@ -57,7 +118,7 @@ const Hero: React.FC = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             className="text-lg md:text-xl text-secondary-600 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             Software Development Student at DeVry University with a unique career transition from architecture
@@ -68,12 +129,13 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               onClick={scrollToProjects}
               className="button-primary flex items-center space-x-2"
             >
@@ -86,7 +148,7 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             <div className="text-center">
@@ -109,17 +171,17 @@ const Hero: React.FC = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity }}
           className="w-6 h-10 border-2 border-secondary-400 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity }}
             className="w-1 h-3 bg-secondary-400 rounded-full mt-2"
           />
         </motion.div>

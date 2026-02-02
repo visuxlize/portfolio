@@ -61,7 +61,7 @@ const About: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="space-y-8"
           >
@@ -105,7 +105,7 @@ const About: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
             className="space-y-8"
           >
@@ -149,7 +149,7 @@ const About: React.FC = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="p-4 bg-secondary-50 rounded-xl"
                   >
@@ -176,7 +176,7 @@ const About: React.FC = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="p-4 bg-white border border-secondary-200 rounded-xl hover:shadow-md transition-shadow duration-200"
                   >

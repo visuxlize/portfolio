@@ -18,19 +18,19 @@ const Footer: React.FC = () => {
       name: "LinkedIn",
       url: "https://linkedin.com/in/andres-marte",
       icon: <Linkedin className="w-5 h-5" />,
-      color: "hover:bg-blue-600"
+      color: "hover:bg-slate-600"
     },
     {
       name: "Twitter",
       url: "https://twitter.com/andresmarte",
       icon: <Twitter className="w-5 h-5" />,
-      color: "hover:bg-blue-400"
+      color: "hover:bg-sky-400"
     },
     {
       name: "Email",
       url: "mailto:andres.marte@example.com",
       icon: <Mail className="w-5 h-5" />,
-      color: "hover:bg-red-500"
+      color: "hover:bg-rose-500"
     }
   ];
 
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="md:col-span-2"
           >
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.1, y: -2 }}
                   className={`w-10 h-10 bg-secondary-800 text-secondary-300 rounded-full flex items-center justify-center transition-all duration-200 ${social.color} hover:text-white`}
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             viewport={{ once: true }}
           >
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true }}
           className="border-t border-secondary-800 mt-12 pt-8"
         >
