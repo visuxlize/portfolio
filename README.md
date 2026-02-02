@@ -1,6 +1,6 @@
 # Andres Marte - Portfolio Website
 
-A modern, responsive portfolio website showcasing Andres Marte's work as a software developer and UX/UI designer. Built with React, TypeScript, Tailwind CSS, and Framer Motion.
+A modern, responsive portfolio website showcasing Andres Marte's work as a full-stack developer, UX/UI designer, and photographer. Built with React, TypeScript, Tailwind CSS, and Framer Motion to demonstrate skills and featured projects.
 
 ## 🌟 Features
 
@@ -15,11 +15,12 @@ A modern, responsive portfolio website showcasing Andres Marte's work as a softw
 ## 🚀 Technologies Used
 
 - **React 18** - Modern React with hooks and functional components
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Lucide React** - Beautiful icons
-- **React Intersection Observer** - Scroll-based animations
+- **TypeScript** - Type-safe development for better code quality
+- **Tailwind CSS** - Utility-first CSS framework for rapid styling
+- **Framer Motion** - Smooth animations and transitions
+- **Lucide React** - Beautiful, customizable icons
+- **React Intersection Observer** - Scroll-triggered animations
+- **GitHub Pages** - Free hosting and deployment
 
 ## 📁 Project Structure
 
@@ -60,20 +61,21 @@ The website is fully responsive and optimized for:
 ### Projects Carousel
 - Auto-scrolling carousel with smooth animations
 - Slows down on hover for better user interaction
-- Displays both UX/UI and React development projects
-- Each project includes technology tags and action buttons
+- Features real projects: Therapick App, Ostome App, NCM Redesign, and Portfolio
+- Each project includes technology tags and links to GitHub/live demos
 
 ### Skills Section
 - Interactive progress bars that animate on scroll
 - Organized by categories (Programming, Design, Tools, Cybersecurity)
-- Additional skills displayed as tags
-- Currently learning section for ongoing education
+- Showcases proficiency in JavaScript, TypeScript, Python, Swift, React, Node.js
+- Design tools: Figma, Adobe XD, Photoshop, Illustrator, After Effects, Premiere Pro
+- Currently learning section highlighting cloud services (AWS/Azure) and advanced cybersecurity
 
 ### Contact Form
-- Fully functional contact form with validation
-- Success/error states with animations
-- Social media links and contact information
-- Availability status indicator
+- Contact form with validation
+- Real contact information (mAndres1994@gmail.com)
+- Links to GitHub and LinkedIn profiles
+- Availability status for internships and junior developer opportunities
 
 ## 🔧 Available Scripts
 
@@ -86,10 +88,23 @@ The website is fully responsive and optimized for:
 ## 📞 Contact
 
 Andres Marte
-- Email: andres.marte@example.com
-- GitHub: [@visuxlize](https://github.com/visuxlize)
-- LinkedIn: [Andres Marte](https://www.linkedin.com/in/andres-marte-95438217b/)
+- **Email:** [mAndres1994@gmail.com](mailto:mAndres1994@gmail.com)
+- **GitHub:** [@visuxlize](https://github.com/visuxlize)
+- **LinkedIn:** [Andres Marte](https://www.linkedin.com/in/andres-marte-95438217b/)
+- **Location:** New York, NY (EST)
+- **Portfolio:** [https://visuxlize.github.io/portfolio/](https://visuxlize.github.io/portfolio/)
+
+## 👨‍💻 About
+
+Andres Marte is a software development student at DeVry University (expected graduation: 2026) with a unique background in architecture and UX/UI design. He brings a design-first approach to development, combining his B-Tech in Architecture with modern web technologies to create exceptional digital experiences. His focus areas include:
+
+- **Full-Stack Development:** React, TypeScript, Node.js, Express.js
+- **UX/UI Design:** Figma, Adobe XD, Photoshop, Illustrator
+- **Cybersecurity:** Network security, ethical hacking, secure coding practices
+- **Photography:** Professional photographer specializing in portraits, urban, and wedding photography
+
+Open to internships and junior developer opportunities to further develop skills in production-ready applications and cloud services.
 
 ---
 
-**Note**: This is a portfolio website for Andres Marte, a software development student specializing in cybersecurity, React development, and UX/UI design. The website showcases his projects, skills, and professional experience.
+**Built with passion by Andres Marte** | Software Development Student | Full-Stack Developer | UX/UI Designer | Photographer

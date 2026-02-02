@@ -5,16 +5,28 @@ import { GraduationCap, Code, Shield, Users, Award, BookOpen } from 'lucide-reac
 const About: React.FC = () => {
   const education = [
     {
-      degree: "Bachelor of Science in Cybersecurity",
-      school: "University of Technology",
-      year: "2022 - 2026",
-      description: "Focusing on network security, ethical hacking, and secure software development."
+      degree: "Bachelor of Science in Software Development",
+      school: "DeVry University",
+      year: "In Progress - Expected 2026",
+      description: "Focusing on cybersecurity, full-stack development, and secure software engineering practices."
     },
     {
-      degree: "Software Development Certificate",
-      school: "Tech Academy",
+      degree: "Associate of Science in Information Technology and Networking",
+      school: "DeVry University",
+      year: "Completed",
+      description: "Foundation in networking, IT infrastructure, and systems administration."
+    },
+    {
+      degree: "MIT UX/UI Design Certification",
+      school: "MIT",
       year: "2023",
-      description: "Intensive program covering modern web development and programming fundamentals."
+      description: "Comprehensive training in user experience design, interface design, and design thinking methodologies."
+    },
+    {
+      degree: "BTech Architecture",
+      school: "CUNY City Tech",
+      year: "Completed",
+      description: "Foundation in design principles, spatial thinking, and project management - bringing unique perspective to software design."
     }
   ];
 
@@ -60,7 +72,7 @@ const About: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-accent-500 rounded-3xl transform -rotate-3"></div>
                 <div className="absolute inset-2 bg-white rounded-2xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src={process.env.PUBLIC_URL + "/images/andres.jpg"}
                     alt="Andres Marte"
                     className="w-full h-full object-cover"
                   />
@@ -103,23 +115,25 @@ const About: React.FC = () => {
                 <span className="gradient-text">About Me</span>
               </h2>
               <p className="text-lg text-secondary-600 leading-relaxed">
-                I'm a passionate software development student with a keen interest in cybersecurity, 
-                currently pursuing my degree while building modern web applications and creating 
-                exceptional user experiences through UX/UI design.
+                I'm a passionate software development student at DeVry University with a unique background
+                in architecture and UX/UI design. Currently pursuing my degree (expected 2026) while building
+                modern web applications and exploring the intersection of security, design, and development.
               </p>
             </div>
 
             {/* Personal Story */}
             <div className="space-y-4">
               <p className="text-secondary-700 leading-relaxed">
-                My journey in technology began with a curiosity about how things work on the web. 
-                This led me to explore web development, where I discovered my passion for creating 
-                user-centered digital experiences that not only look great but also solve real problems.
+                My journey into technology represents a unique career transition from architecture to
+                software development. With a B-Tech in Architecture and a UX/UI Design Certificate,
+                I bring a design-first mindset to every project. My architectural background provides
+                a distinctive perspective on system design and user-centered problem solving.
               </p>
               <p className="text-secondary-700 leading-relaxed">
-                Currently, I'm expanding my knowledge in cybersecurity, understanding the importance 
-                of building secure applications from the ground up. I believe that great software 
-                should be both beautiful and secure, which drives my approach to every project I work on.
+                Currently studying at DeVry University, I'm focusing on cybersecurity while building
+                production-ready applications with React, TypeScript, and Node.js. I'm also a professional
+                photographer specializing in portraits, urban, and wedding photography, which further
+                enhances my eye for visual design and composition in digital products.
               </p>
             </div>
 

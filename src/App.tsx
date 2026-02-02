@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import ProjectsCarousel from './components/ProjectsCarousel';
+import Projects from './components/Projects';
 import About from './components/About';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
@@ -14,7 +14,7 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <ProjectsCarousel />
+        <Projects />
         <About />
         <Skills />
         <Resume />

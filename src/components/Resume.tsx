@@ -1,89 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, FileText, Award, Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Award, Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const Resume: React.FC = () => {
   const experience = [
     {
-      title: "Freelance Web Developer",
+      title: "Freelance UX/UI Designer & Full-Stack Developer",
       company: "Self-Employed",
-      period: "2023 - Present",
+      period: "Mar 2020 - Present",
       location: "Remote",
-      description: "Building modern web applications for clients using React, TypeScript, and Node.js. Specializing in responsive design and user experience optimization.",
+      description: "Develop responsive web applications and mobile apps using React, JavaScript, HTML5, CSS3, and Flutter. Build RESTful APIs and backend services using Node.js and Express with database integration.",
       achievements: [
-        "Developed 10+ client websites with 100% satisfaction rate",
-        "Implemented responsive designs that work across all devices",
-        "Optimized website performance and SEO for better rankings"
+        "Create brand identities, interactive prototypes, and comprehensive design systems using Figma and Adobe Creative Suite",
+        "Perform cross-browser testing, debugging, and performance optimization to ensure seamless user experiences",
+        "Collaborate with clients using Agile methodologies to deliver projects on time and within scope"
       ]
     },
     {
-      title: "UX/UI Design Intern",
-      company: "Digital Design Studio",
-      period: "2023",
+      title: "Store Manager & Technical Collaborator",
+      company: "Framebridge",
+      period: "Aug 2020 - Jun 2024",
       location: "New York, NY",
-      description: "Collaborated with senior designers to create user-centered designs for mobile and web applications.",
+      description: "Collaborated with engineering teams to develop and test custom Shopify retail tools and POS systems. Designed UI workflows for Point-of-Sale applications.",
       achievements: [
-        "Redesigned 3 mobile applications improving user engagement by 40%",
-        "Conducted user research and usability testing for 5 projects",
-        "Created comprehensive design systems and component libraries"
+        "Improved checkout efficiency by 25% through UI workflow design for POS applications",
+        "Conducted cross-device testing (desktop, tablet, mobile) ensuring UI consistency and functionality",
+        "Created design system and component library for e-commerce website relaunch, increasing user engagement"
       ]
     },
     {
-      title: "Junior Developer",
-      company: "Tech Startup",
-      period: "2022 - 2023",
-      location: "San Francisco, CA",
-      description: "Worked on frontend development using React and contributed to the development of new features.",
+      title: "Branch Manager",
+      company: "New Castle Metal",
+      period: "2018 - 2020",
+      location: "New York, NY",
+      description: "Implemented Monday.com project management platform to automate workflows and improve team productivity. Developed quality control procedures using SCRUM principles.",
       achievements: [
-        "Built 5 new features that increased user retention by 25%",
-        "Collaborated with cross-functional teams in an agile environment",
-        "Mentored junior developers and conducted code reviews"
+        "Improved operational efficiency by 30% through SCRUM-based quality control procedures",
+        "Managed end-to-end projects ensuring adherence to timelines, specifications, and budgets",
+        "Successfully automated workflows using project management tools"
       ]
     }
   ];
 
   const certifications = [
     {
-      name: "React Developer Certification",
-      issuer: "Meta",
-      year: "2023",
-      icon: "⚛️"
-    },
-    {
-      name: "UI/UX Design Certificate",
+      name: "Google UX Design Professional",
       issuer: "Google",
       year: "2023",
       icon: "🎨"
     },
     {
-      name: "Cybersecurity Fundamentals",
+      name: "MIT UX/UI Design Certification",
+      issuer: "MIT",
+      year: "2023",
+      icon: "🎓"
+    },
+    {
+      name: "CompTIA A+ Certified",
       issuer: "CompTIA",
       year: "2023",
       icon: "🛡️"
     },
     {
-      name: "Python Programming",
-      issuer: "Coursera",
-      year: "2022",
-      icon: "🐍"
+      name: "Apple Certified Trainer",
+      issuer: "Apple",
+      year: "2023",
+      icon: "🍎"
     }
   ];
 
   const achievements = [
     {
-      title: "Dean's List",
-      description: "Academic excellence in software development program",
-      year: "2023"
+      title: "Therapick App",
+      description: "Built full-stack mental health app reducing search friction by 70%",
+      year: "2024"
     },
     {
-      title: "Hackathon Winner",
-      description: "First place in university coding competition",
-      year: "2023"
+      title: "95+ Lighthouse Score",
+      description: "Portfolio website achieved 95+ scores across all performance categories",
+      year: "2024"
     },
     {
-      title: "Best UX Design",
-      description: "Awarded for outstanding user experience design",
-      year: "2022"
+      title: "60% Mobile Improvement",
+      description: "New Castle Metal website redesign improved mobile usability by 60%",
+      year: "2023"
     }
   ];
 
@@ -101,22 +101,9 @@ const Resume: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Resume & Experience</span>
           </h2>
-          <p className="text-xl text-secondary-600 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
             My professional journey, achievements, and continuous learning in software development and design.
           </p>
-          
-          {/* Download Resume Button */}
-          <motion.a
-            href="/resume.pdf"
-            download
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="button-primary inline-flex items-center space-x-2"
-          >
-            <Download size={20} />
-            <span>Download Full Resume</span>
-            <FileText size={20} />
-          </motion.a>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-12">

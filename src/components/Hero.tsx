@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToProjects = () => {
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-2xl md:text-3xl text-secondary-600 mb-8 font-medium"
           >
-            Software Developer & UX/UI Designer
+            Full-Stack Developer | UX/UI Designer | Photographer
           </motion.h2>
 
           {/* Description */}
@@ -60,8 +60,8 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-secondary-600 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Passionate about creating beautiful, functional, and user-centered digital experiences. 
-            Currently studying cybersecurity while building modern web applications with React.
+            Software Development Student at DeVry University with a unique career transition from architecture
+            to tech. Combining design-first thinking with secure coding practices to create exceptional digital experiences.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -80,17 +80,6 @@ const Hero: React.FC = () => {
               <span>View My Work</span>
               <ArrowDown size={20} />
             </motion.button>
-            
-            <motion.a
-              href="/resume.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="button-secondary flex items-center space-x-2"
-            >
-              <Download size={20} />
-              <span>Download Resume</span>
-            </motion.a>
           </motion.div>
 
           {/* Stats */}

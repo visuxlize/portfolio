@@ -21,24 +21,33 @@ const Skills: React.FC = () => {
     { name: 'JavaScript', level: 90, category: 'Programming', icon: '⚡', color: 'from-yellow-400 to-orange-500' },
     { name: 'TypeScript', level: 85, category: 'Programming', icon: '🔷', color: 'from-blue-500 to-blue-600' },
     { name: 'Python', level: 80, category: 'Programming', icon: '🐍', color: 'from-green-500 to-blue-500' },
-    { name: 'C#', level: 75, category: 'Programming', icon: '💜', color: 'from-purple-500 to-purple-600' },
-    { name: 'HTML/CSS', level: 95, category: 'Programming', icon: '🌐', color: 'from-orange-500 to-pink-500' },
-    
+    { name: 'Swift', level: 70, category: 'Programming', icon: '🍎', color: 'from-orange-500 to-red-500' },
+    { name: 'HTML5/CSS3', level: 95, category: 'Programming', icon: '🌐', color: 'from-orange-500 to-pink-500' },
+    { name: 'SQL', level: 78, category: 'Programming', icon: '🗄️', color: 'from-blue-500 to-purple-500' },
+
     // Frameworks & Libraries
     { name: 'React', level: 88, category: 'Programming', icon: '⚛️', color: 'from-cyan-400 to-blue-500' },
     { name: 'Node.js', level: 82, category: 'Programming', icon: '🟢', color: 'from-green-500 to-green-600' },
+    { name: 'Express.js', level: 80, category: 'Programming', icon: '🚂', color: 'from-gray-600 to-gray-700' },
     { name: 'Tailwind CSS', level: 90, category: 'Programming', icon: '🎨', color: 'from-teal-400 to-cyan-500' },
-    
+    { name: 'Bootstrap', level: 85, category: 'Programming', icon: '🅱️', color: 'from-purple-500 to-purple-600' },
+    { name: 'Material-UI', level: 82, category: 'Programming', icon: '🎭', color: 'from-blue-400 to-blue-600' },
+
     // Design Tools
-    { name: 'Figma', level: 85, category: 'Design', icon: '🎨', color: 'from-purple-500 to-pink-500' },
-    { name: 'Adobe XD', level: 80, category: 'Design', icon: '🎯', color: 'from-pink-500 to-purple-500' },
-    { name: 'Sketch', level: 75, category: 'Design', icon: '✏️', color: 'from-yellow-500 to-orange-500' },
-    
+    { name: 'Figma', level: 90, category: 'Design', icon: '🎨', color: 'from-purple-500 to-pink-500' },
+    { name: 'Adobe XD', level: 85, category: 'Design', icon: '🎯', color: 'from-pink-500 to-purple-500' },
+    { name: 'Photoshop', level: 88, category: 'Design', icon: '🖼️', color: 'from-blue-500 to-blue-700' },
+    { name: 'Illustrator', level: 82, category: 'Design', icon: '✏️', color: 'from-orange-500 to-yellow-500' },
+    { name: 'After Effects', level: 75, category: 'Design', icon: '🎬', color: 'from-purple-600 to-blue-600' },
+    { name: 'Premiere Pro', level: 78, category: 'Design', icon: '🎥', color: 'from-purple-500 to-pink-600' },
+
     // Tools & Platforms
     { name: 'Git/GitHub', level: 88, category: 'Tools', icon: '📚', color: 'from-gray-600 to-gray-800' },
     { name: 'VS Code', level: 92, category: 'Tools', icon: '💻', color: 'from-blue-500 to-blue-600' },
-    { name: 'Docker', level: 70, category: 'Tools', icon: '🐳', color: 'from-blue-400 to-blue-500' },
-    
+    { name: 'npm', level: 85, category: 'Tools', icon: '📦', color: 'from-red-500 to-red-600' },
+    { name: 'Vercel', level: 80, category: 'Tools', icon: '▲', color: 'from-black to-gray-800' },
+    { name: 'Postman', level: 82, category: 'Tools', icon: '📮', color: 'from-orange-500 to-orange-600' },
+
     // Cybersecurity
     { name: 'Network Security', level: 75, category: 'Cybersecurity', icon: '🛡️', color: 'from-red-500 to-red-600' },
     { name: 'Ethical Hacking', level: 70, category: 'Cybersecurity', icon: '🔐', color: 'from-green-600 to-green-700' },
@@ -168,11 +177,11 @@ const Skills: React.FC = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               {[
-                { name: 'Next.js', icon: '⚡' },
-                { name: 'GraphQL', icon: '🔷' },
-                { name: 'AWS', icon: '☁️' },
-                { name: 'Kubernetes', icon: '⚓' },
-                { name: 'Machine Learning', icon: '🤖' }
+                { name: 'AWS/Azure', icon: '☁️' },
+                { name: 'Advanced Cybersecurity', icon: '🔐' },
+                { name: 'Cloud Architecture', icon: '🏗️' },
+                { name: 'iOS Development', icon: '📱' },
+                { name: 'DevOps', icon: '⚙️' }
               ].map((tech, index) => (
                 <motion.div
                   key={tech.name}

@@ -20,65 +20,42 @@ const ProjectsCarousel: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A modern e-commerce platform with user authentication, product management, and payment integration.",
+      title: "Therapick App",
+      description: "Stress-relief therapist matching platform using emotion-based algorithms to connect users with the right mental health professionals.",
       category: "React",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "https://ecommerce-demo.com",
-      githubUrl: "https://github.com/visuxlize/ecommerce-platform",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop",
+      technologies: ["React", "TypeScript", "Node.js", "Algorithm Design", "UX Research"],
+      githubUrl: "https://github.com/visuxlize",
       color: "from-blue-500 to-cyan-500"
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates and team features.",
+      title: "Ostome App",
+      description: "Child-friendly mood and symptom tracking application designed for young patients to communicate their feelings and health status.",
       category: "React",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
-      technologies: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://task-app-demo.com",
-      githubUrl: "https://github.com/visuxlize/task-management",
+      image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop",
+      technologies: ["React", "Firebase", "Child-Friendly UI", "Data Visualization"],
+      githubUrl: "https://github.com/visuxlize",
       color: "from-purple-500 to-pink-500"
     },
     {
       id: 3,
-      title: "Banking App Redesign",
-      description: "Complete UX/UI redesign of a mobile banking application focusing on user experience and accessibility.",
+      title: "New Castle Metal - Redesign",
+      description: "Complete website redesign emphasizing modern UX principles, responsive design, and improved user navigation for a metal manufacturing company.",
       category: "UX/UI",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop",
-      technologies: ["Figma", "Adobe XD", "Prototyping", "User Research"],
-      liveUrl: "https://banking-redesign.com",
-      color: "from-green-500 to-emerald-500"
+      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=400&h=300&fit=crop",
+      technologies: ["Figma", "Adobe XD", "Responsive Design", "User Research"],
+      githubUrl: "https://github.com/visuxlize",
+      color: "from-gray-600 to-gray-800"
     },
     {
       id: 4,
-      title: "Food Delivery App",
-      description: "Mobile app design for food delivery service with intuitive navigation and seamless ordering experience.",
-      category: "UX/UI",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
-      technologies: ["Sketch", "InVision", "User Testing", "Wireframing"],
-      liveUrl: "https://food-delivery-design.com",
-      color: "from-orange-500 to-red-500"
-    },
-    {
-      id: 5,
-      title: "Weather Dashboard",
-      description: "Real-time weather dashboard with interactive maps and detailed forecasts.",
-      category: "React",
-      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=400&h=300&fit=crop",
-      technologies: ["React", "OpenWeather API", "Chart.js", "Geolocation"],
-      liveUrl: "https://weather-dashboard-demo.com",
-      githubUrl: "https://github.com/visuxlize/weather-dashboard",
-      color: "from-indigo-500 to-blue-500"
-    },
-    {
-      id: 6,
       title: "Portfolio Website",
-      description: "Personal portfolio website with modern design and smooth animations.",
+      description: "Professional showcase featuring projects, skills, and career narrative with modern design and smooth animations.",
       category: "React",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://andres-marte-portfolio.com",
+      liveUrl: "https://visuxlize.github.io/portfolio/",
       githubUrl: "https://github.com/visuxlize/portfolio",
       color: "from-teal-500 to-cyan-500"
     }

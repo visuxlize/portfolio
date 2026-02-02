@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -41,19 +41,13 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "andres.marte@example.com",
-      link: "mailto:andres.marte@example.com"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "mAndres1994@gmail.com",
+      link: "mailto:mAndres1994@gmail.com"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      value: "New York, NY",
+      value: "New York, NY (EST)",
       link: "#"
     }
   ];
@@ -67,15 +61,9 @@ const Contact: React.FC = () => {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/andres-marte",
+      url: "https://www.linkedin.com/in/andres-marte-95438217b/",
       icon: <Linkedin className="w-6 h-6" />,
       color: "hover:bg-blue-600"
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/andresmarte",
-      icon: <Twitter className="w-6 h-6" />,
-      color: "hover:bg-blue-400"
     }
   ];
 
@@ -275,12 +263,12 @@ const Contact: React.FC = () => {
             >
               <h4 className="text-xl font-bold mb-3">Availability</h4>
               <p className="text-primary-100 mb-4">
-                I'm currently available for freelance work and full-time opportunities.
+                Open to internships and junior developer opportunities. Expected graduation: 2026.
               </p>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="text-sm">Available for new projects</span>
+                  <span className="text-sm">Available for internships</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -288,7 +276,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="text-sm">Quick response time</span>
+                  <span className="text-sm">Actively building projects</span>
                 </div>
               </div>
             </motion.div>
