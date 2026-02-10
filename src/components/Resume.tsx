@@ -5,6 +5,20 @@ import { Award, Briefcase, Calendar, MapPin } from 'lucide-react';
 const Resume: React.FC = () => {
   const experience = [
     {
+      title: "Store Manager",
+      company: "Brooklinen",
+      period: "November 2025 - Present",
+      location: "New York, NY",
+      description: "Implement customer service practices by analyzing data through excel and coding through javascript app scripts to better the lives of retail employees across 8 stores",
+      achievements: [
+        "Manage a $1.9 Million dollar store in Williamsburg, Brooklyn"
+        "Create zoning charts and analyze financial data and create excel app scripts to fully automate workload"
+        "Create scheduling systems using full automations in excel and javascript"
+      ]
+    }
+  ];
+  
+    {
       title: "Freelance UX/UI Designer & Full-Stack Developer",
       company: "Self-Employed",
       period: "Mar 2020 - Present",
@@ -13,7 +27,7 @@ const Resume: React.FC = () => {
       achievements: [
         "Create brand identities, interactive prototypes, and comprehensive design systems using Figma and Adobe Creative Suite",
         "Perform cross-browser testing, debugging, and performance optimization to ensure seamless user experiences",
-        "Collaborate with clients using Agile methodologies to deliver projects on time and within scope"
+        "Collaborate with clients using Agile methodologies to deliver projects on time and within scope."
       ]
     },
     {
@@ -25,13 +39,13 @@ const Resume: React.FC = () => {
       achievements: [
         "Improved checkout efficiency by 25% through UI workflow design for POS applications",
         "Conducted cross-device testing (desktop, tablet, mobile) ensuring UI consistency and functionality",
-        "Created design system and component library for e-commerce website relaunch, increasing user engagement"
+        "Created design system and component library for e-commerce website relaunch, increasing user engagement."
       ]
     },
     {
       title: "Branch Manager",
       company: "New Castle Metal",
-      period: "2018 - 2020",
+      period: "2024 - October 2025",
       location: "New York, NY",
       description: "Implemented Monday.com project management platform to automate workflows and improve team productivity. Developed quality control procedures using SCRUM principles.",
       achievements: [
