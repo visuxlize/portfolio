@@ -9,11 +9,11 @@ const Resume: React.FC = () => {
       company: "Brooklinen",
       period: "November 2025 - Present",
       location: "New York, NY",
-      description: "Implement customer service practices by analyzing data through excel and coding through javascript app scripts to better the lives of retail employees across 8 stores",
+      description: "Implement customer service practices by analyzing data through Excel and coding through JavaScript app scripts to better the lives of retail employees across 8 stores",
       achievements: [
-        "Manage a $1.9 Million dollar store in Williamsburg, Brooklyn"
-        "Create zoning charts and analyze financial data and create excel app scripts to fully automate workload"
-        "Create scheduling systems using full automations in excel and javascript"
+        "Manage a $1.9 Million dollar store in Williamsburg, Brooklyn",
+        "Create zoning charts and analyze financial data, and create Excel app scripts to fully automate workload",
+        "Create scheduling systems using full automations in Excel and JavaScript."
       ]
     }
   ];
