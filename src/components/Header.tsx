@@ -11,8 +11,8 @@ const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    globalThis.addEventListener('scroll', handleScroll);
+    return () => globalThis.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
