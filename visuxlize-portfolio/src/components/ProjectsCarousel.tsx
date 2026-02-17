@@ -81,6 +81,17 @@ const ProjectsCarousel: React.FC = () => {
       liveUrl: "https://andres-marte-portfolio.com",
       githubUrl: "https://github.com/visuxlize/portfolio",
       color: "from-teal-500 to-cyan-500"
+    },
+    {
+      id: 7,
+      title: "Headz Ain't Ready",
+      description: "Full-stack barbershop site for Queens, NYC: public site, online booking (barber, service, date, time), and staff-only dashboard with schedule and calendar export.",
+      category: "React",
+      image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=400&h=300&fit=crop",
+      technologies: ["Next.js 15", "TypeScript", "Supabase", "Drizzle ORM", "Tailwind CSS"],
+      liveUrl: "https://headz-aint-ready.netlify.app/",
+      githubUrl: "https://github.com/visuxlize/Headz-Aint-Ready",
+      color: "from-gray-700 to-red-600"
     }
   ];
 
