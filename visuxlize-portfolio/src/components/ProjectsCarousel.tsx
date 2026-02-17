@@ -78,7 +78,7 @@ const ProjectsCarousel: React.FC = () => {
       category: "React",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://andres-marte-portfolio.com",
+      liveUrl: "https://visuxlize.github.io/portfolio/",
       githubUrl: "https://github.com/visuxlize/portfolio",
       color: "from-teal-500 to-cyan-500"
     },

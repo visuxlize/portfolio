@@ -34,47 +34,41 @@
 
 ---
 
-<img align="right" width="370" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="Coding Gif"/>
-
 ### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> About Me
 
 ```javascript
 const andres = {
-    pronouns: "He/Him",
-    location: "New York, NY 🗽",
-    timezone: "EST (UTC-5)",
-    currentRole: "Software Development Student",
-    university: "DeVry University",
-    
-    background: {
-        education: ["B-Tech in Architecture", "UX/UI Design Certificate"],
-        transition: "Architecture → Software Development",
-        passions: ["Problem Solving", "User Experience", "Visual Design"]
-    },
-    
-    interests: [
-        "Full-Stack Web Development",
-        "UI/UX Design & Research",
-        "Database Architecture",
-        "Photography (Portraits, Urban, Weddings)"
-    ],
-    
-    currentlyLearning: [
-        "Advanced React Patterns",
-        "Cloud Computing (AWS, Azure)",
-        "Database Systems & SQL",
-        "Mobile App Development"
-    ],
-    
-    funFact: "I photograph New York City streets and weddings when I'm not coding! 📸",
-    
-    lookingFor: "Collaboration on projects that challenge me and expand my skillset",
-    
-    availability: "Open to internships and junior developer opportunities"
+  pronouns: "He/Him",
+  location: "New York, NY 🗽",
+  timezone: "EST (UTC-5)",
+  currentRole: "Software Development Student",
+  university: "DeVry University",
+  background: {
+    education: ["B-Tech in Architecture", "UX/UI Design Certificate"],
+    transition: "Architecture → Software Development",
+    passions: ["Problem Solving", "User Experience", "Visual Design"]
+  },
+  interests: [
+    "Full-Stack Web Development",
+    "UI/UX Design & Research",
+    "Database Architecture",
+    "Photography (Portraits, Urban, Weddings)"
+  ],
+  currentlyLearning: [
+    "Advanced React Patterns",
+    "Cloud Computing (AWS, Azure)",
+    "Database Systems & SQL",
+    "Mobile App Development"
+  ],
+  funFact: "I photograph NYC streets and weddings when I'm not coding! 📸",
+  lookingFor: "Collaboration on projects that challenge me and expand my skillset",
+  availability: "Open to internships and junior developer opportunities"
 };
 ```
 
-<br clear="both"/>
+<div align="center">
+  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="380" alt="Coding" />
+</div>
 
 ---
 
