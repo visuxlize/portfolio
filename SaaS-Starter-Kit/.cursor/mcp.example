@@ -1,7 +1,0 @@
-{
-  "mcpServers": {
-    "supabase": {
-      "url": "your-supabase-database-mcp-connection-url"
-    }
-  }
-}
