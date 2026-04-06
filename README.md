@@ -10,7 +10,7 @@ Do not add a second copy of `src/` / `public/` / `package.json` at the repo root
 
 **Live site:** [https://visuxlize.github.io/portfolio/](https://visuxlize.github.io/portfolio/)
 
-**GitHub Pages:** In the repo **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions** (workflow **Deploy portfolio site**). If Source is set to the **`main`** branch, GitHub may show **`README.md`** instead of the React app.
+**GitHub Pages:** **Settings → Pages → Build and deployment → Source:** choose **Deploy from a branch** (not “GitHub Actions” for this setup). Branch **`gh-pages`**, folder **`/ (root)`**. The workflow **Deploy portfolio to GitHub Pages** updates that branch on every push to `main`. If you use the **`main`** branch as the Pages source, you will only see **`README.md`**, not the React app.
 
 ---
 

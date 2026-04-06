@@ -1,28 +1,28 @@
-# Builds visuxlize-portfolio and deploys to GitHub Pages (static React app).
-# After merge, set: Repo Settings → Pages → Build and deployment → Source → GitHub Actions
-# (not "Deploy from branch" on main, or the README will be shown instead of the app).
+# Builds visuxlize-portfolio and pushes the static site to the gh-pages branch.
+#
+# GitHub Pages setup (one time):
+#   Repository → Settings → Pages → Build and deployment
+#   Source: "Deploy from a branch"
+#   Branch: gh-pages  /  folder: / (root)
+#
+# Do NOT set Source to "main" — that shows README instead of the app.
 
-name: Deploy portfolio site
+name: Deploy portfolio to GitHub Pages
 
 on:
   push:
     branches: ["main"]
-    paths:
-      - "visuxlize-portfolio/**"
-      - ".github/workflows/deploy-portfolio-pages.yml"
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: github-pages
+  group: deploy-gh-pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -41,21 +41,12 @@ jobs:
           npm ci
           npm run build
 
-      - name: Disable Jekyll (CRA needs this on Pages)
+      - name: Disable Jekyll
         run: touch visuxlize-portfolio/build/.nojekyll
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Push build to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: visuxlize-portfolio/build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: visuxlize-portfolio/build
+          force_orphan: true
