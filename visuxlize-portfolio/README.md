@@ -1,95 +1,87 @@
-# Andres Marte - Portfolio Website
+# Portfolio website
 
-A modern, responsive portfolio website showcasing Andres Marte's work as a software developer and UX/UI designer. Built with React, TypeScript, Tailwind CSS, and Framer Motion.
+**Repository:** [github.com/visuxlize/portfolio](https://github.com/visuxlize/portfolio) — this folder (**`visuxlize-portfolio/`**) is the **canonical source** for the site; run all commands **here**, not from the monorepo root.
 
-## 🌟 Features
+Personal portfolio for **Andres Marte** — software developer, UX/UI designer, and photographer. Built with **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**, deployed to **GitHub Pages**.
 
-- **Modern Design**: Clean, professional design with smooth animations
-- **Responsive**: Fully responsive across all devices
-- **Interactive Projects Carousel**: Auto-scrolling carousel that slows down on hover
-- **Smooth Animations**: Powered by Framer Motion for engaging user experience
-- **Contact Form**: Functional contact form with validation
-- **SEO Optimized**: Meta tags and structured data for better search visibility
-- **Fast Performance**: Optimized for speed and accessibility
-
-## 🚀 Technologies Used
-
-- **React 18** - Modern React with hooks and functional components
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Lucide React** - Beautiful icons
-- **React Intersection Observer** - Scroll-based animations
-
-## 📁 Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── Header.tsx      # Navigation header
-│   ├── Hero.tsx        # Hero section
-│   ├── ProjectsCarousel.tsx  # Projects showcase
-│   ├── About.tsx       # About section
-│   ├── Skills.tsx      # Skills and expertise
-│   ├── Resume.tsx      # Resume and experience
-│   ├── Contact.tsx     # Contact form
-│   └── Footer.tsx      # Footer
-├── App.tsx             # Main app component
-├── index.tsx           # React entry point
-└── index.css           # Global styles and Tailwind
-```
-
-## 🎨 Customization
-
-### Colors
-The color scheme can be customized in `tailwind.config.js`:
-- Primary colors: Blue gradient
-- Secondary colors: Gray scale
-- Accent colors: Purple/pink gradient
-
-
-## 📱 Responsive Design
-
-The website is fully responsive and optimized for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
-
-## 🎯 Key Features Explained
-
-### Projects Carousel
-- Auto-scrolling carousel with smooth animations
-- Slows down on hover for better user interaction
-- Displays both UX/UI and React development projects
-- Each project includes technology tags and action buttons
-
-### Skills Section
-- Interactive progress bars that animate on scroll
-- Organized by categories (Programming, Design, Tools, Cybersecurity)
-- Additional skills displayed as tags
-- Currently learning section for ongoing education
-
-### Contact Form
-- Fully functional contact form with validation
-- Success/error states with animations
-- Social media links and contact information
-- Availability status indicator
-
-## 🔧 Available Scripts
-
-- `npm start` - Runs the app in development mode
-- `npm run build` - Builds the app for production
-- `npm run test` - Launches the test runner
-- `npm run eject` - Ejects from Create React App
-- `npm run deploy` - Deploys to GitHub Pages
-
-## 📞 Contact
-
-Andres Marte
-- Email: andres.marte@example.com
-- GitHub: [@visuxlize](https://github.com/visuxlize)
-- LinkedIn: [Andres Marte](https://www.linkedin.com/in/andres-marte-95438217b/)
+**Live:** [https://visuxlize.github.io/portfolio/](https://visuxlize.github.io/portfolio/)
 
 ---
 
-**Note**: This is a portfolio website for Andres Marte, a software development student specializing in cybersecurity, React development, and UX/UI design. The website showcases his projects, skills, and professional experience.
+## Features
+
+- **Hero** — Dot-grid background, ambient glow, focus-area chips (full-stack / UX·UI / photography) with auto-rotation, typewriter headline keyword + tagline
+- **Experience** — Timeline of roles and education
+- **Projects** — Cards with links to GitHub (and live demos where available)
+- **About** — Photo, bio, languages, soft skills, and **tech stack** grid (Frontend, Backend, Design, Security, Dev & tooling, Deploy)
+- **Contact** — Ways to reach you
+- **Theme** — Light/dark toggle with system preference as default
+- **Responsive** — Mobile-first layout
+
+---
+
+## Tech stack
+
+- React 18, TypeScript, Create React App  
+- Tailwind CSS  
+- Framer Motion  
+- Lucide React (icons)  
+- `gh-pages` for deployment  
+
+---
+
+## Project structure
+
+```
+visuxlize-portfolio/
+├── public/
+│   ├── index.html
+│   └── images/           # e.g. portrait assets
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Projects.tsx
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── index.css
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+└── tsconfig.json
+```
+
+---
+
+## Scripts
+
+| Command | Description |
+|--------|-------------|
+| `npm start` | Dev server |
+| `npm run build` | Production build (output in `build/`) |
+| `npm test` | Test runner |
+| `npm run deploy` | `predeploy` runs `build`, then publishes `build/` to `gh-pages` |
+
+Ensure `package.json` **`homepage`** matches your GitHub Pages URL (currently `https://visuxlize.github.io/portfolio`).
+
+---
+
+## Deployment
+
+See **`DEPLOYMENT_GUIDE.md`** for step-by-step GitHub Pages setup. Short version:
+
+```bash
+npm run deploy
+```
+
+Repo **Settings → Pages**: source branch **`gh-pages`**, folder **`/ (root)`**.
+
+---
+
+## Contact
+
+- **GitHub:** [@visuxlize](https://github.com/visuxlize)

@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "build": "tailwindcss -i ./src/css/main.css -o ./public/styles.css"
-  }
-}
