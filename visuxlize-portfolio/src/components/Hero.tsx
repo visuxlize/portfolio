@@ -185,7 +185,11 @@ function SnakeDotGrid({ excludeRef }: SnakeDotGridProps) {
           const opacity = ((i + 1) / snake.trail.length) * 0.5;
           ctx.beginPath();
           ctx.arc(x * CELL + CELL / 2, y * CELL + CELL / 2, 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 217, 255, ${opacity})`;
+          const isDark = document.documentElement.classList.contains('dark');
+          // Light: saturated blue for contrast; dark: cyan reference
+          ctx.fillStyle = isDark
+            ? `rgba(0, 217, 255, ${opacity})`
+            : `rgba(37, 99, 235, ${opacity})`;
           ctx.fill();
         }
       }
