@@ -1,46 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg: #f8fafc;
+    --fg: #0f172a;
+    --border: rgba(0, 0, 0, 0.08);
+    --card: rgba(0, 0, 0, 0.02);
+  }
+
+  .dark {
+    /* Near-black canvas (closer to santifer.io / reference) */
+    --bg: #0a0a0a;
+    --fg: #f1f5f9;
+    --border: rgba(255, 255, 255, 0.08);
+    --card: rgba(255, 255, 255, 0.04);
+  }
+
   html {
     scroll-behavior: smooth;
+    @apply font-sans;
   }
-  
+
   body {
-    @apply bg-secondary-50 text-secondary-900 font-sans;
+    @apply bg-[var(--bg)] text-[var(--fg)] antialiased;
   }
-  
-  * {
-    @apply border-secondary-200;
+
+  /* Santifer-style subtle dot grid (full-page texture) */
+  .portfolio-page-bg {
+    background-color: var(--bg);
+    background-image: radial-gradient(
+      rgba(148, 163, 184, 0.22) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  .dark .portfolio-page-bg {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    );
+  }
+
+  *,
+  *::before,
+  *::after {
+    border-color: var(--border);
   }
 }
 
 @layer components {
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  .heading-display {
+    @apply font-display font-bold tracking-[-0.02em];
   }
-  
+
+  .card-base {
+    @apply bg-[var(--card)] border border-[var(--border)] rounded-2xl;
+  }
+
+  .chip {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border border-[var(--border)] text-slate-600 dark:text-slate-300;
+  }
+
+  .section-container {
+    @apply max-w-4xl mx-auto px-6 py-24;
+  }
+
+  @keyframes gradientShimmer {
+    0% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .shimmer-text {
+    background-size: 200% 100%;
+    animation: gradientShimmer 4s ease-in-out infinite;
+  }
+
+  .skills-dot-panel {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-purple bg-clip-text text-transparent;
+  }
+
   .glass-effect {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
-  
+
   .card-hover {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
   }
-  
+
   .button-primary {
-    @apply px-6 py-3 bg-primary-600 text-white rounded-lg font-medium transition-all duration-300 hover:bg-primary-700 hover:shadow-lg active:scale-95;
+    @apply px-6 py-3 bg-primary text-white rounded-lg font-medium transition-all duration-300 hover:bg-primary-dark hover:shadow-lg active:scale-95;
   }
-  
+
   .button-secondary {
-    @apply px-6 py-3 bg-secondary-200 text-secondary-800 rounded-lg font-medium transition-all duration-300 hover:bg-secondary-300 hover:shadow-lg active:scale-95;
+    @apply px-6 py-3 bg-slate-200 text-slate-800 rounded-lg font-medium transition-all duration-300 hover:bg-slate-300 hover:shadow-lg active:scale-95 dark:bg-surface-800 dark:text-slate-100 dark:hover:bg-surface-800/90;
   }
-  
+
   .section-padding {
     @apply py-16 px-4 sm:px-6 lg:px-8;
   }
-  
+
   .container-max {
     @apply max-w-7xl mx-auto;
   }
@@ -50,12 +128,12 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
@@ -67,15 +145,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-secondary-100;
+  @apply bg-surface-100 dark:bg-surface-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-400 rounded-full;
+  @apply bg-primary rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-500;
+  @apply bg-primary-dark;
 }
 
 /* Smooth animations for carousel */

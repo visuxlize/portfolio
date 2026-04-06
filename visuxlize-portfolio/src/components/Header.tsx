@@ -1,164 +1,119 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
-const Header: React.FC = () => {
+export type HeaderProps = {
+  isDark: boolean;
+  toggleDark: () => void;
+};
+
+const scrollTo = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+};
+
+const NAV_LINKS = [
+  { label: 'My Path', id: 'experience' },
+  { label: 'What I Build', id: 'projects' },
+  { label: "Let's Talk", id: 'contact' },
+] as const;
+
+const Header: React.FC<HeaderProps> = ({ isDark, toggleDark }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY >= 60);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMobileMenuOpen(false);
+  const handleNav = (id: string) => {
+    scrollTo(id);
+    setMobileOpen(false);
   };
 
-  const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'About', id: 'about' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Resume', id: 'resume' },
-    { name: 'Contact', id: 'contact' },
-  ];
-
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-lg border-b border-secondary-200'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="container-max px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <div className="flex justify-center px-4 pt-4">
+        <div
+          className={`flex w-full max-w-4xl items-center justify-between gap-4 rounded-full px-4 py-3 transition-all duration-300 ${
+            isScrolled
+              ? 'border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-xl'
+              : 'border border-transparent bg-transparent'
+          }`}
+        >
+          <button
+            type="button"
+            onClick={() => scrollTo('home')}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-purple text-sm font-bold text-white"
+            aria-label="Home"
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-primary-600 to-accent-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">AM</span>
-            </div>
-            <span className="text-xl font-bold gradient-text">Andres Marte</span>
-          </motion.div>
+            AM
+          </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <motion.button
-                key={item.name}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection(item.id)}
-                className="text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200"
+          <nav
+            className="hidden flex-1 items-center justify-center gap-10 md:flex"
+            aria-label="Primary"
+          >
+            {NAV_LINKS.map(({ label, id }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => handleNav(id)}
+                className="font-sans text-sm font-medium text-slate-600 transition-colors hover:text-primary dark:text-slate-400"
               >
-                {item.name}
-              </motion.button>
+                {label}
+              </button>
             ))}
           </nav>
 
-          {/* Social Links */}
-          <div className="hidden md:flex items-center space-x-4">
-            <motion.a
-              href="https://github.com/visuxlize"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setMobileOpen((o) => !o)}
+              className="rounded-full p-2 text-slate-600 transition-colors hover:text-primary md:hidden dark:text-slate-400"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav-drawer"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
-              <Github size={20} />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/andres-marte-95438217b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-            >
-              <Linkedin size={20} />
-            </motion.a>
-            <motion.a
-              href="mailto:mAndres1994@gmail.com"
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-            >
-              <Mail size={20} />
-            </motion.a>
-          </div>
+              {mobileOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
+            </button>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
+            <button
+              type="button"
+              onClick={toggleDark}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="rounded-full border border-[var(--border)] bg-[var(--card)] p-2 text-slate-600 transition-colors hover:border-primary/50 dark:text-slate-300"
+            >
+              {isDark ? <Sun size={20} strokeWidth={2} /> : <Moon size={20} strokeWidth={2} />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-md border-t border-secondary-200"
-          >
-            <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.name}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left text-secondary-700 hover:text-primary-600 font-medium py-2 transition-colors duration-200"
-                >
-                  {item.name}
-                </motion.button>
-              ))}
-              <div className="flex items-center space-x-4 pt-4 border-t border-secondary-200">
-                <a
-                  href="https://github.com/visuxlize"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-                >
-                  <Github size={20} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/andres-marte-95438217b/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a
-                  href="mailto:mAndres1994@gmail.com"
-                  className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-                >
-                  <Mail size={20} />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+      <div
+        id="mobile-nav-drawer"
+        className={`w-full overflow-hidden border-t border-[var(--border)] bg-[var(--bg)] transition-[max-height] duration-300 ease-out md:hidden ${
+          mobileOpen ? 'max-h-96' : 'max-h-0 border-t-0'
+        }`}
+        aria-hidden={!mobileOpen}
+      >
+        <nav className="flex flex-col" aria-label="Mobile primary">
+          {NAV_LINKS.map(({ label, id }) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => handleNav(id)}
+              className="w-full py-4 px-6 text-left font-sans text-sm font-medium text-slate-600 transition-colors hover:text-primary dark:text-slate-400"
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+      </div>
+    </header>
   );
 };
 

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html"
@@ -8,44 +9,31 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          DEFAULT: '#06b6d4',
+          light: '#67e8f9',
+          dark: '#0891b2',
         },
-        secondary: {
+        purple: {
+          DEFAULT: '#a855f7',
+          light: '#d8b4fe',
+          dark: '#7c3aed',
+        },
+        gold: {
+          DEFAULT: '#f59e0b',
+          light: '#fcd34d',
+          dark: '#d97706',
+        },
+        surface: {
           50: '#f8fafc',
           100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
+          950: '#020617',
         },
-        accent: {
-          50: '#fdf4ff',
-          100: '#fae8ff',
-          200: '#f5d0fe',
-          300: '#f0abfc',
-          400: '#e879f9',
-          500: '#d946ef',
-          600: '#c026d3',
-          700: '#a21caf',
-          800: '#86198f',
-          900: '#701a75',
-        }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
@@ -56,6 +44,7 @@ module.exports = {
         'float': 'float 6s ease-in-out infinite',
         'carousel': 'carousel 20s linear infinite',
         'carousel-slow': 'carousel 40s linear infinite',
+        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -81,6 +70,10 @@ module.exports = {
         carousel: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        glowPulse: {
+          '0%,100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '0.7', transform: 'scale(1.05)' },
         },
       },
       backdropBlur: {
