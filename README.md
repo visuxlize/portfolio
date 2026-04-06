@@ -10,6 +10,8 @@ Do not add a second copy of `src/` / `public/` / `package.json` at the repo root
 
 **Live site:** [https://visuxlize.github.io/portfolio/](https://visuxlize.github.io/portfolio/)
 
+**GitHub Pages:** In the repo **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions** (workflow **Deploy portfolio site**). If Source is set to the **`main`** branch, GitHub may show **`README.md`** instead of the React app.
+
 ---
 
 ## Portfolio app — work in this directory
