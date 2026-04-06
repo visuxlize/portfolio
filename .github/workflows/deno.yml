@@ -19,25 +19,37 @@ permissions:
 
 jobs:
   test:
-    # Only run when this repo has a Deno config at the root (avoids failing on pushes that only touch e.g. React/Node projects).
-    if: ${{ hashFiles('deno.json') != '' || hashFiles('deno.jsonc') != '' }}
-
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup repo
         uses: actions/checkout@v4
 
+      # hashFiles() is not valid in jobs.<id>.if — only in steps — so we gate with a shell check.
+      - name: Check for Deno project at repo root
+        id: deno
+        run: |
+          if [ -f deno.json ] || [ -f deno.jsonc ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No deno.json or deno.jsonc at repo root — skipping Deno lint and test."
+          fi
+
       - name: Setup Deno
+        if: steps.deno.outputs.present == 'true'
         uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31 # v1.1.2
         with:
           deno-version: v1.x
 
       # - name: Verify formatting
+      #   if: steps.deno.outputs.present == 'true'
       #   run: deno fmt --check
 
       - name: Run linter
+        if: steps.deno.outputs.present == 'true'
         run: deno lint
 
       - name: Run tests
+        if: steps.deno.outputs.present == 'true'
         run: deno test -A
