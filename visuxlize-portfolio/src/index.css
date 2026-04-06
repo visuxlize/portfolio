@@ -18,6 +18,13 @@
     --fg: #f1f5f9;
     --border: rgba(255, 255, 255, 0.08);
     --card: rgba(255, 255, 255, 0.04);
+    --elevated: #090d0c;
+    --elevated-border: rgba(255, 255, 255, 0.1);
+  }
+
+  :root:not(.dark) {
+    --elevated: #ffffff;
+    --elevated-border: rgba(15, 23, 42, 0.1);
   }
 
   html {
@@ -89,10 +96,27 @@
 
   .skills-dot-panel {
     background-image: radial-gradient(
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba(15, 23, 42, 0.07) 1px,
       transparent 1px
     );
     background-size: 18px 18px;
+  }
+
+  .dark .skills-dot-panel {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+  }
+
+  /* Hero background grid — light vs dark */
+  .hero-dot-grid {
+    background-image: radial-gradient(rgba(15, 23, 42, 0.09) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .dark .hero-dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   }
 
   .gradient-text {
@@ -137,6 +161,51 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes beam-spin {
+  0% {
+    --beam-angle: 0deg;
+  }
+  100% {
+    --beam-angle: 360deg;
+  }
+}
+
+.beam-pill {
+  position: relative;
+}
+
+.beam-pill::before {
+  content: '';
+  position: absolute;
+  inset: -2px -7px -2px -7px;
+  border-radius: 9999px;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0%,
+    transparent 82%,
+    rgba(0, 217, 255, 0.05) 86%,
+    rgba(0, 217, 255, 0.15) 89%,
+    rgba(0, 217, 255, 0.35) 92%,
+    rgba(0, 217, 255, 0.6) 95%,
+    rgba(0, 217, 255, 0.9) 98%,
+    rgb(0, 217, 255) 100%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: beam-spin 2s linear infinite;
+  pointer-events: none;
 }
 
 /* Custom scrollbar */

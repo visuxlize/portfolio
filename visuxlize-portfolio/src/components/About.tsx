@@ -81,13 +81,13 @@ function TechCard({
   return (
     <motion.article
       variants={skillCardVariants}
-      className="skills-dot-panel rounded-2xl border border-white/10 bg-[#0a1010]/90 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+      className="skills-dot-panel rounded-2xl border border-[var(--elevated-border)] bg-[var(--elevated)] p-5 shadow-[0_1px_2px_rgba(15,23,42,0.06)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
     >
-      <p className="mb-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-cyan-400">
-        <Icon className="h-3.5 w-3.5 text-cyan-400/90" strokeWidth={2} aria-hidden />
+      <p className="mb-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-cyan-600 dark:text-cyan-400">
+        <Icon className="h-3.5 w-3.5 text-cyan-600/90 dark:text-cyan-400/90" strokeWidth={2} aria-hidden />
         {title}
       </p>
-      <div className="space-y-3 text-sm text-slate-300">{children}</div>
+      <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">{children}</div>
     </motion.article>
   );
 }
@@ -145,12 +145,12 @@ const About: React.FC = () => {
       </div>
 
       <div className="mx-auto mt-16 max-w-6xl">
-        <div className="rounded-3xl border border-white/10 bg-[#090d0c] p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] dark:bg-[#090d0c] md:p-10">
+        <div className="rounded-3xl border border-[var(--elevated-border)] bg-[var(--elevated)] p-8 shadow-[0_4px_24px_rgba(15,23,42,0.06)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:p-10">
           <div className="mb-10 flex items-center gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
-              <Code2 className="h-6 w-6 text-cyan-400" strokeWidth={2} aria-hidden />
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 dark:border-white/10 dark:bg-white/[0.04]">
+              <Code2 className="h-6 w-6 text-cyan-600 dark:text-cyan-400" strokeWidth={2} aria-hidden />
             </div>
-            <h3 className="font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <h3 className="font-display text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl">
               Skills
             </h3>
           </div>
@@ -158,31 +158,31 @@ const About: React.FC = () => {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,260px)_1fr] lg:gap-12">
             <div className="space-y-10">
               <div>
-                <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-400">
+                <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Languages
                 </h4>
                 <ul className="space-y-3 text-sm">
                   {languages.map((lang) => (
                     <li
                       key={lang.label}
-                      className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/10 pb-3 last:border-0 last:pb-0"
+                      className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-200 pb-3 last:border-0 last:pb-0 dark:border-white/10"
                     >
-                      <span className="font-medium text-white">{lang.label}</span>
-                      <span className="text-cyan-400">{lang.level}</span>
+                      <span className="font-medium text-slate-900 dark:text-white">{lang.label}</span>
+                      <span className="text-cyan-600 dark:text-cyan-400">{lang.level}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-400">
+                <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Soft Skills
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {softSkills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-purple-500/35 bg-transparent px-3 py-1.5 text-xs font-medium text-slate-300"
+                      className="rounded-full border border-purple-300/80 bg-purple-50 px-3 py-1.5 text-xs font-medium text-slate-700 dark:border-purple-500/35 dark:bg-transparent dark:text-slate-300"
                     >
                       {skill}
                     </span>
@@ -192,7 +192,7 @@ const About: React.FC = () => {
             </div>
 
             <div>
-              <h4 className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
+              <h4 className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500">
                 Tech Stack
               </h4>
               <motion.div
@@ -208,10 +208,10 @@ const About: React.FC = () => {
                       {cat.items.map((item) => (
                         <li
                           key={item}
-                          className="flex items-start gap-2.5 leading-snug text-slate-200"
+                          className="flex items-start gap-2.5 leading-snug text-slate-800 dark:text-slate-200"
                         >
                           <span
-                            className="mt-2 h-1 w-1 shrink-0 rounded-full bg-cyan-400/80"
+                            className="mt-2 h-1 w-1 shrink-0 rounded-full bg-cyan-600 dark:bg-cyan-400/80"
                             aria-hidden
                           />
                           {item}
