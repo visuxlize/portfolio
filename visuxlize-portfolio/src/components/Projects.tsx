@@ -11,52 +11,64 @@ type Project = {
   gradient: string;
 };
 
-/** Public repos from github.com/visuxlize (Feb 2026). Profile readme repo omitted. */
+/**
+ * Curated highlights — visuxlize + BrasenaInc org (Apr 2026).
+ * Omitted: profile readme, SaaS template, coursework, small one-offs.
+ */
 const projects: Project[] = [
   {
-    title: 'Portfolio',
+    title: 'Brasena',
     description:
-      'Personal portfolio — React, TypeScript, Tailwind, Framer Motion, dark mode, and GitHub Pages deploy.',
-    tags: ['TypeScript', 'React', 'Tailwind', 'GitHub Pages'],
-    githubUrl: 'https://github.com/visuxlize/portfolio',
-    liveUrl: 'https://visuxlize.github.io/portfolio/',
-    gradient: 'from-cyan-500/20 to-blue-500/20',
+      'Wholesale meat logistics for the Bronx and beyond — marketing site, waitlist, and platform story for B2B and B2C. Ongoing product and engineering.',
+    tags: ['TypeScript', 'Next.js', 'Supabase'],
+    githubUrl: 'https://github.com/BrasenaInc/Brasena',
+    liveUrl: 'https://brasenabx.com/marketing',
+    gradient: 'from-emerald-500/20 to-green-600/20',
   },
   {
     title: 'Headz Aint Ready',
     description:
-      'Redesign of booking and website for a barber shop in Jackson Heights, Queens — deployed on Netlify.',
-    tags: ['TypeScript', 'Next.js', 'Netlify'],
+      'Booking and marketing site for a Jackson Heights barbershop — public site, client booking, and shop operations. Live on a custom domain.',
+    tags: ['TypeScript', 'Next.js', 'Supabase'],
     githubUrl: 'https://github.com/visuxlize/Headz-Aint-Ready',
-    liveUrl: 'https://headz-aint-ready.netlify.app/',
+    liveUrl: 'https://headzaintready.com/',
     gradient: 'from-purple-500/20 to-pink-500/20',
+  },
+  {
+    title: 'Savage Entertainment & Hospitality',
+    description:
+      'Luxury events brand platform — cinematic marketing site, inquiries, booking flow, and an admin workspace for bookings, media, and content.',
+    tags: ['TypeScript', 'Next.js', 'Supabase', 'tRPC'],
+    githubUrl: 'https://github.com/visuxlize/Savage-Entertainment-and-Hospitality',
+    liveUrl: 'https://savage-entertainment-and-hospitalit.vercel.app',
+    gradient: 'from-rose-500/20 to-amber-500/20',
+  },
+  {
+    title: 'Brooklinen Backstage',
+    description:
+      'Internal scheduling and retail operations app — daily workflows and tooling for the team.',
+    tags: ['TypeScript', 'Next.js', 'Vercel'],
+    githubUrl: 'https://github.com/visuxlize/Brooklinen-Backstage',
+    liveUrl: 'https://brooklinen-backstage.vercel.app',
+    gradient: 'from-cyan-500/20 to-blue-500/20',
   },
   {
     title: 'Therapick',
     description:
-      'Therapist search app that matches users with mental health professionals based on how they feel — less directory fatigue, more relevant matches.',
+      'Therapist search that matches you with mental health professionals based on how you feel — less directory fatigue, more relevant matches.',
     tags: ['TypeScript', 'React', 'Vercel'],
     githubUrl: 'https://github.com/visuxlize/therapick-app',
     liveUrl: 'https://therapick-app.vercel.app',
     gradient: 'from-amber-500/20 to-orange-500/20',
   },
   {
-    title: 'Brooklinen Backstage',
+    title: 'Portfolio',
     description:
-      'Internal / backstage tooling for workflows — TypeScript full-stack experience.',
-    tags: ['TypeScript', 'Vercel'],
-    githubUrl: 'https://github.com/visuxlize/Brooklinen-Backstage',
-    liveUrl: 'https://brooklinen-backstage.vercel.app',
+      'This site — React, TypeScript, Tailwind, Framer Motion, theme toggle, deployed to GitHub Pages.',
+    tags: ['TypeScript', 'React', 'Tailwind', 'GitHub Pages'],
+    githubUrl: 'https://github.com/visuxlize/portfolio',
+    liveUrl: 'https://visuxlize.github.io/portfolio/',
     gradient: 'from-cyan-500/20 to-blue-500/20',
-  },
-  {
-    title: 'SaaS Starter Kit',
-    description:
-      'Boilerplate template to ship apps and projects faster — auth-ready patterns and structure.',
-    tags: ['TypeScript', 'Template'],
-    githubUrl: 'https://github.com/visuxlize/SaaS-Starter-Kit',
-    liveUrl: undefined,
-    gradient: 'from-purple-500/20 to-pink-500/20',
   },
   {
     title: 'Ostome',
@@ -70,20 +82,11 @@ const projects: Project[] = [
   {
     title: 'NCM Redesign',
     description:
-      'Redesign concept for the New Castle Metal website — front-end exploration.',
+      'Redesign concept for the New Castle Metal website — front-end exploration and static deploy.',
     tags: ['JavaScript', 'GitHub Pages'],
     githubUrl: 'https://github.com/visuxlize/NCMRedesign',
     liveUrl: 'https://visuxlize.github.io/NCMRedesign/',
-    gradient: 'from-cyan-500/20 to-blue-500/20',
-  },
-  {
-    title: 'Software Development Assignments',
-    description:
-      'Coursework and assignments from my software development degree — C# and related exercises.',
-    tags: ['C#', 'Coursework'],
-    githubUrl: 'https://github.com/visuxlize/Software-development-assignments',
-    liveUrl: undefined,
-    gradient: 'from-amber-500/20 to-orange-500/20',
+    gradient: 'from-slate-500/20 to-cyan-500/20',
   },
 ];
 

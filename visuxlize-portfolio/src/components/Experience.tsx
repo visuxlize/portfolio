@@ -16,6 +16,19 @@ type TimelineItem = {
 const items: TimelineItem[] = [
   {
     type: 'work',
+    role: 'Chief Technology Officer',
+    company: 'Brasena Inc',
+    period: '2025 – Present',
+    current: true,
+    bullets: [
+      'Lead technology strategy and engineering for a wholesale meat logistics platform — Bronx-first launch with plans to scale across NYC and beyond',
+      'Ship and iterate the public experience, waitlist, and core platform (ongoing)',
+      'Own architecture, delivery, and technical direction alongside product and operations',
+    ],
+    tags: ['CTO', 'Next.js', 'Supabase', 'Logistics'],
+  },
+  {
+    type: 'work',
     role: 'Software Engineer (Freelance)',
     company: 'Self-Employed',
     period: '2023 – Present',
