@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
@@ -6,6 +7,8 @@ import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import MLBEdgePro from './components/MLBEdgePro';
+import Coursework from './components/Coursework';
 
 function SectionDivider() {
   return (
@@ -15,7 +18,23 @@ function SectionDivider() {
   );
 }
 
-function App() {
+function Home() {
+  return (
+    <main>
+      <Hero />
+      <SectionDivider />
+      <Experience />
+      <SectionDivider />
+      <Projects />
+      <SectionDivider />
+      <About />
+      <SectionDivider />
+      <Contact />
+    </main>
+  );
+}
+
+function AppShell({ children }: { children: React.ReactNode }) {
   const [isDark, setIsDark] = React.useState(() => {
     if (typeof window === 'undefined') return false;
     const theme = localStorage.getItem('theme');
@@ -32,19 +51,23 @@ function App() {
   return (
     <div className="portfolio-page-bg min-h-screen text-[var(--fg)] transition-colors duration-300">
       <Header isDark={isDark} toggleDark={() => setIsDark((d) => !d)} />
-      <main>
-        <Hero />
-        <SectionDivider />
-        <Experience />
-        <SectionDivider />
-        <Projects />
-        <SectionDivider />
-        <About />
-        <SectionDivider />
-        <Contact />
-      </main>
+      {children}
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter basename="/portfolio">
+      <AppShell>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/mlb-edge-pro" element={<MLBEdgePro />} />
+          <Route path="/coursework" element={<Coursework />} />
+        </Routes>
+      </AppShell>
+    </BrowserRouter>
   );
 }
 
