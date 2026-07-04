@@ -138,7 +138,18 @@ const About: React.FC = () => {
               architecture and UX/UI design. I transitioned from designing physical spaces to
               building digital ones — which means I approach every project thinking about structure,
               usability, and the people who will use it. I&apos;m particularly interested in the
-              intersection of cybersecurity and frontend development.
+              intersection of cybersecurity and frontend development, with working knowledge of
+              backend systems and architecture.
+            </p>
+            <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 md:text-xl md:leading-relaxed">
+              I&apos;m also a Store Leader at Brooklinen, running day-to-day retail operations —
+              scheduling, staffing, traffic, and store performance. That floor-level ops experience
+              is exactly what pushed me to build{' '}
+              <span className="font-semibold text-slate-900 dark:text-white">Brooklinen Backstage</span>,
+              an internal tool that replaced spreadsheet scheduling and manual time-off tracking
+              with one system for store leaders and HQ. I like sitting at that intersection —
+              understanding a process from the floor up, then writing the software that actually
+              simplifies it.
             </p>
           </div>
         </motion.div>

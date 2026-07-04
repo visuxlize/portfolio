@@ -18,9 +18,10 @@ const projects: Project[] = [
   {
     title: 'MLB Edge Pro',
     description:
-      'Personal MLB prediction and parlay tool — win probability model, HR/hit/K predictions using Poisson + binomial statistics, FanDuel prop edge detection, historical accuracy tracking, and a full Carbon Dark UI.',
-    tags: ['Python', 'FastAPI', 'Next.js', 'SQLite', 'TypeScript'],
+      'MLB prediction and parlay platform, live on iOS and web — win probability model, HR/hit/K predictions using Poisson + binomial statistics, FanDuel prop edge detection, historical accuracy tracking, and a full Carbon Dark UI.',
+    tags: ['Next.js', 'tRPC', 'Stripe', 'React Native', 'TypeScript'],
     githubUrl: 'https://github.com/visuxlize/MLBEdgePro',
+    liveUrl: 'https://mlbedgepro.dev',
     gradient: 'from-rose-500/20 to-red-600/20',
     caseStudyPath: '/mlb-edge-pro',
     badge: 'In Progress',
@@ -33,7 +34,6 @@ const projects: Project[] = [
     githubUrl: 'https://github.com/visuxlize/Software-development-assignments',
     gradient: 'from-teal-500/20 to-cyan-600/20',
     caseStudyPath: '/coursework',
-    badge: 'In Progress',
   },
   {
     title: 'Brasena',

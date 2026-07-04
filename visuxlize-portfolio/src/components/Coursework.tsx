@@ -1,11 +1,25 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle, Clock } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  ArrowLeft, CheckCircle, Clock, ChevronDown,
+  ClipboardList, Search, Layers, Hammer, Code2, FlaskConical, Trophy,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+};
+
+type WeekMilestone = {
+  week: number;
+  phase: string;
+  icon: LucideIcon;
+  dueDate: string;
+  title: string;
+  summary: string;
+  deliverables: string[];
 };
 
 type Course = {
@@ -20,7 +34,109 @@ type Course = {
   concepts: string[];
   highlight: string;
   githubPath: string;
+  weeks?: WeekMilestone[];
 };
+
+const ceis400Weeks: WeekMilestone[] = [
+  {
+    week: 1,
+    phase: 'Planning',
+    icon: ClipboardList,
+    dueDate: 'Due May 8, 2026',
+    title: 'Requirements & Project Plan',
+    summary: 'Defined the business problem from GB Manufacturing\'s case study and wrote the initial specification for the MMMS (Maintenance Management System).',
+    deliverables: [
+      'Business Problem Scenario -- scope, objectives, and stakeholders',
+      'IEEE-830 Software Requirements Specification -- 8 functional groups, 43 requirements',
+      '30 use cases (UC-01 -- UC-30) mapped back to the SRS for traceability',
+      'MS Project Plan -- 24 tasks across 4 SDLC phases',
+    ],
+  },
+  {
+    week: 2,
+    phase: 'Analysis',
+    icon: Search,
+    dueDate: 'Due May 15, 2026',
+    title: 'Use Case & Class Analysis',
+    summary: 'Selected 5 high-priority use cases and modeled the system\'s structure and behavior before any code was written.',
+    deliverables: [
+      'Full use case descriptions for 5 priority flows (auth, checkout, return, employee management)',
+      'Use case diagram -- Employee and Supervisor actors against the MMMS boundary',
+      'Class diagram -- Employee, Equipment, Transaction, and Supervisor classes',
+      'VOPC matrix confirming every use case maps to at least one class',
+    ],
+  },
+  {
+    week: 3,
+    phase: 'Design (Architecture)',
+    icon: Layers,
+    dueDate: 'Due May 22, 2026',
+    title: 'System Architecture',
+    summary: 'Chose a hybrid three-tier + object-oriented architecture and mapped it against every non-functional requirement.',
+    deliverables: [
+      'SRS updated with 5 non-functional requirements (usability, performance, reliability, security, maintainability)',
+      'Architecture Description -- React presentation layer, Django REST business logic, SQLite/PostgreSQL data layer',
+      'Static architecture diagram with FR coverage per component',
+      'Sequence diagram -- 14-step equipment checkout flow',
+    ],
+  },
+  {
+    week: 4,
+    phase: 'Design & Construction',
+    icon: Hammer,
+    dueDate: 'Due May 29, 2026',
+    title: 'Software Design Description & Build Begins',
+    summary: 'The biggest week of the project -- a full IEEE-1016 SDD plus a working application skeleton across the entire stack.',
+    deliverables: [
+      'IEEE-1016 Software Design Description -- all 9 sections, Singleton and Factory patterns documented',
+      'GitHub repository set up for the 5-person team',
+      'Django backend skeleton -- 5 models, 14 REST endpoints, serializers',
+      'React frontend skeleton -- 6 pages, JWT auth context, mock API layer',
+    ],
+  },
+  {
+    week: 5,
+    phase: 'Construction',
+    icon: Code2,
+    dueDate: 'Due June 5, 2026',
+    title: 'Component Construction',
+    summary: 'Completed the core build -- refactored the backend into proper Django models and finished a fully functional React frontend running on mock data.',
+    deliverables: [
+      'Backend refactor -- guard clauses, consistent success/message response shape across all 14 endpoints',
+      'Employee model on AbstractBaseUser with secure password hashing',
+      'Standalone React app runnable end-to-end against a mock API',
+      'Singleton (JWT session) and Factory (role-based access) patterns implemented in code',
+    ],
+  },
+  {
+    week: 6,
+    phase: 'Testing',
+    icon: FlaskConical,
+    dueDate: 'Due June 12, 2026',
+    title: 'Test Case Design',
+    summary: 'Wrote a formal IEEE-829 test suite so any team member -- not just the original developer -- could execute and verify each feature.',
+    deliverables: [
+      '12 IEEE-829 test cases (TC-01 -- TC-12) covering auth, checkout, return, and supervisor functions',
+      'SQL injection sub-test built into the login test case',
+      'Prerequisite, input, and expected-result criteria defined for every test',
+      'Run instructions for executing backend + frontend together',
+    ],
+  },
+  {
+    week: 7,
+    phase: 'Testing & Final Submission',
+    icon: Trophy,
+    dueDate: 'Due June 20, 2026',
+    title: 'Test Execution & Project Close-Out',
+    summary: 'Executed all 12 test cases against the live system, fixed defects, re-tested, and closed out the capstone.',
+    deliverables: [
+      'Initial test report -- all 12 tests run against the live app, results and severity ratings logged',
+      'Defect corrections followed by an updated test report re-confirming all 12 passed',
+      'Team charter -- roles, communication norms, and conflict resolution, signed by all 5 members',
+      'Final system: 6 React pages, 14 REST endpoints, 5 Django models, JWT auth with role-based access',
+    ],
+  },
+];
 
 const courses: Course[] = [
   {
@@ -65,8 +181,8 @@ const courses: Course[] = [
   {
     number: 'CEIS400',
     title: 'Software Engineering -- GB Maintenance Management System',
-    period: 'In Progress -- Spring 2026',
-    status: 'in-progress',
+    period: 'Completed June 2026',
+    status: 'completed',
     gradient: 'from-rose-500/20 to-amber-500/20',
     description: 'Full software development lifecycle -- requirements gathering, architecture design, OO analysis and design, iterative construction. Team-based capstone with IEEE documentation.',
     whatIBuilt: 'GB Maintenance Management System (MMMS) -- a full-stack web app for GB Manufacturing. Barcode scanning for equipment checkout/return, cross-warehouse materials search, supervisor dashboard.',
@@ -74,8 +190,90 @@ const courses: Course[] = [
     concepts: ['Requirements gathering and IEEE-830 SRS', 'IEEE-1016 Software Design Documents', 'Object-oriented analysis and design', 'REST API design with Django REST Framework', 'JWT authentication flow', 'Iterative construction and sprint planning', 'Collaborative Git workflow across a team'],
     highlight: 'This is the course where coursework became real software engineering. Writing IEEE-830 SRS documents, designing architecture before touching code, and building across a 5-person team all parallel professional work.',
     githubPath: 'https://github.com/visuxlize/Software-development-assignments/tree/main/CEIS400%20-%20Maintenance%20System',
+    weeks: ceis400Weeks,
   },
 ];
+
+const WeekJourney: React.FC<{ weeks: WeekMilestone[] }> = ({ weeks }) => {
+  const [openWeek, setOpenWeek] = useState<number | null>(1);
+
+  return (
+    <div className="mt-4 card-base p-6 sm:p-8">
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-1">7-Week Project Journey</p>
+      <h3 className="font-display text-lg font-bold text-slate-900 dark:text-white mb-6">
+        From requirements to a shipped capstone, week by week
+      </h3>
+
+      <div className="relative">
+        <div className="absolute left-[15px] top-2 bottom-2 w-px bg-[var(--border)]" aria-hidden />
+        <ol className="space-y-2">
+          {weeks.map((w) => {
+            const isOpen = openWeek === w.week;
+            const Icon = w.icon;
+            return (
+              <li key={w.week} className="relative pl-10">
+                <span
+                  className={
+                    'absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full border-2 transition-colors ' +
+                    (isOpen
+                      ? 'border-primary bg-primary text-white'
+                      : 'border-[var(--border)] bg-[var(--card)] text-slate-500')
+                  }
+                  aria-hidden
+                >
+                  <Icon size={14} strokeWidth={2.5} />
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => setOpenWeek(isOpen ? null : w.week)}
+                  aria-expanded={isOpen}
+                  className="flex w-full flex-wrap items-center gap-x-3 gap-y-1 rounded-lg py-1.5 text-left transition-colors hover:text-primary"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-widest text-slate-500">Week {w.week}</span>
+                  <span className="text-xs font-medium text-primary">{w.phase}</span>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-white">{w.title}</span>
+                  <span className="ml-auto flex items-center gap-2 text-[11px] text-slate-500">
+                    {w.dueDate}
+                    <ChevronDown
+                      size={14}
+                      strokeWidth={2.5}
+                      className={'transition-transform ' + (isOpen ? 'rotate-180' : '')}
+                    />
+                  </span>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-4 pt-1">
+                        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 mb-3">{w.summary}</p>
+                        <ul className="space-y-1.5">
+                          {w.deliverables.map((d) => (
+                            <li key={d} className="flex items-start gap-2.5 text-[13px] text-slate-600 dark:text-slate-400">
+                              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden />
+                              {d}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </div>
+  );
+};
 
 const Coursework: React.FC = () => {
   const navigate = useNavigate();
@@ -107,11 +305,11 @@ const Coursework: React.FC = () => {
             <div className="flex flex-wrap items-center gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <CheckCircle size={16} className="text-teal-500" strokeWidth={2} />
-                <span className="text-slate-700 dark:text-slate-300 font-medium">3 courses completed</span>
+                <span className="text-slate-700 dark:text-slate-300 font-medium">4 courses completed</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock size={16} className="text-amber-400" strokeWidth={2} />
-                <span className="text-slate-700 dark:text-slate-300 font-medium">1 course in progress</span>
+                <Trophy size={16} className="text-amber-400" strokeWidth={2} />
+                <span className="text-slate-700 dark:text-slate-300 font-medium">7-week capstone, shipped</span>
               </div>
               <div className="ml-auto text-xs text-slate-500">B.S. Software Development · DeVry University · 2024 – Present</div>
             </div>
@@ -188,6 +386,8 @@ const Coursework: React.FC = () => {
               <div className="mt-4 card-base border-l-2 border-l-primary p-5">
                 <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 italic">"{course.highlight}"</p>
               </div>
+
+              {course.weeks && <WeekJourney weeks={course.weeks} />}
             </motion.article>
           ))}
         </div>

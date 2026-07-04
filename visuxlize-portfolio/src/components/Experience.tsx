@@ -29,6 +29,20 @@ const items: TimelineItem[] = [
   },
   {
     type: 'work',
+    role: 'Founder & Solo Developer',
+    company: 'MLBEdgePro.dev',
+    period: 'May 2026 – Present',
+    current: true,
+    bullets: [
+      'Solo-built and shipped a subscription MLB analytics platform — win probability models, an AI-ranked "Edge Report," a prop builder, HR spray/exit-velocity breakdowns, and a Claude-powered chat analyst',
+      'Own the entire stack alone: Next.js, tRPC, Drizzle + Supabase, Clerk auth, Stripe billing, and the Anthropic API, plus product, pricing, and support',
+      'Grew to 13 concurrent paying subscribers by shipping a free tier first and following real usage — moved the bet tracker to Supabase once users needed it to sync across devices, added live FanDuel odds once users wanted the model checked against real sportsbook lines, and rebuilt checkout on Stripe after the initial billing flow broke in production',
+      'Recognized a single-sport product loses subscribers in the offseason, so expanded into FIFA World Cup 2026 coverage to keep the platform — and subscriptions — active year-round',
+    ],
+    tags: ['Next.js', 'tRPC', 'Stripe', 'Clerk', 'Supabase', 'Claude API'],
+  },
+  {
+    type: 'work',
     role: 'Software Engineer (Freelance)',
     company: 'Self-Employed',
     period: '2023 – Present',
