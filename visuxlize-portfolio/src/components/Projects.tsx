@@ -68,7 +68,7 @@ const projects: Project[] = [
       'Internal scheduling and retail operations app — daily workflows and tooling for the team.',
     tags: ['TypeScript', 'Next.js', 'Vercel'],
     githubUrl: 'https://github.com/visuxlize/Brooklinen-Backstage',
-    liveUrl: 'https://brooklinen-backstage.vercel.app',
+    liveUrl: 'https://visuxlize.github.io/Brooklinen-Backstage/',
     gradient: 'from-cyan-500/20 to-blue-500/20',
   },
   {
