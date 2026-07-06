@@ -177,6 +177,29 @@ const Projects: React.FC = () => {
           </motion.article>
         ))}
       </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.45 }}
+        className="mt-8 card-base flex flex-col items-center gap-3 p-8 text-center sm:flex-row sm:justify-between sm:text-left"
+      >
+        <div>
+          <h3 className="font-display text-lg font-bold text-slate-900 dark:text-white">Want the deeper story behind these?</h3>
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+            Full case studies with architecture diagrams, design decisions, and build timelines.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => navigate('/case-studies')}
+          className="flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+        >
+          Case Studies
+          <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
+        </button>
+      </motion.div>
     </section>
   );
 };

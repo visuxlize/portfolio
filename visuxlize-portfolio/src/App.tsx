@@ -9,6 +9,12 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MLBEdgePro from './components/MLBEdgePro';
 import Coursework from './components/Coursework';
+import CaseStudiesIndex from './components/case-studies/CaseStudiesIndex';
+import BrooklinenBackstage from './components/case-studies/BrooklinenBackstage';
+import Brasena from './components/case-studies/Brasena';
+import HeadzAintReady from './components/case-studies/HeadzAintReady';
+import SavageEntertainment from './components/case-studies/SavageEntertainment';
+import NCMRedesign from './components/case-studies/NCMRedesign';
 
 function SectionDivider() {
   return (
@@ -63,7 +69,13 @@ function App() {
       <AppShell>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/case-studies" element={<CaseStudiesIndex />} />
           <Route path="/mlb-edge-pro" element={<MLBEdgePro />} />
+          <Route path="/brooklinen" element={<BrooklinenBackstage />} />
+          <Route path="/brasena" element={<Brasena />} />
+          <Route path="/headz" element={<HeadzAintReady />} />
+          <Route path="/savage" element={<SavageEntertainment />} />
+          <Route path="/ncm" element={<NCMRedesign />} />
           <Route path="/coursework" element={<Coursework />} />
         </Routes>
       </AppShell>

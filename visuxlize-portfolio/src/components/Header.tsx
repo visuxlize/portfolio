@@ -46,10 +46,12 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleDark }) => {
   const NAV = [
     { label: 'My Path',      action: () => goSection('experience') },
     { label: 'What I Build', action: () => goSection('projects') },
-    { label: 'MLB Edge Pro', action: () => { setMobileOpen(false); navigate('/mlb-edge-pro'); } },
-    { label: 'Coursework',   action: () => { setMobileOpen(false); navigate('/coursework'); } },
+    { label: 'Case Studies', action: () => { setMobileOpen(false); navigate('/case-studies'); } },
     { label: "Let's Talk",   action: () => goSection('contact') },
   ];
+
+  const caseStudyRoutes = ['/case-studies', '/mlb-edge-pro', '/brooklinen', '/brasena', '/headz', '/savage', '/ncm', '/coursework'];
+  const isCaseStudyRoute = caseStudyRoutes.some((r) => location.pathname === r || location.pathname.startsWith(r + '/'));
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -75,8 +77,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleDark }) => {
                 type="button"
                 onClick={action}
                 className={`font-sans text-sm font-medium transition-colors hover:text-primary ${
-                  (label === 'MLB Edge Pro' && location.pathname === '/mlb-edge-pro') ||
-                  (label === 'Coursework'   && location.pathname === '/coursework')
+                  label === 'Case Studies' && isCaseStudyRoute
                     ? 'text-primary'
                     : 'text-slate-600 dark:text-slate-400'
                 }`}
