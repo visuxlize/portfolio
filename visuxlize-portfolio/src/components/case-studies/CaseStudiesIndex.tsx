@@ -48,7 +48,7 @@ const caseStudies: CaseStudy[] = [
     number: '02',
     title: 'Brooklinen Backstage',
     category: 'Retail Operations',
-    description: 'Multi-store scheduling, RTO approvals, traffic analytics, and daily ops for an 8-store retail team.',
+    description: 'Proof-of-concept multi-store scheduling, RTO approvals, traffic analytics, and daily ops, prototyped for an 8-store retail team.',
     tags: ['Next.js', 'Supabase', 'Drizzle'],
     path: '/brooklinen',
     icon: LayoutDashboard,

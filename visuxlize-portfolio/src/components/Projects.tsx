@@ -65,11 +65,12 @@ const projects: Project[] = [
   {
     title: 'Brooklinen Backstage',
     description:
-      'Internal scheduling and retail operations app — daily workflows and tooling for the team.',
+      'Proof-of-concept scheduling and retail operations app, exploring how a store team\'s workflows could be unified into one tool.',
     tags: ['TypeScript', 'Next.js', 'Vercel'],
     githubUrl: 'https://github.com/visuxlize/Brooklinen-Backstage',
     liveUrl: 'https://visuxlize.github.io/Brooklinen-Backstage/',
     gradient: 'from-cyan-500/20 to-blue-500/20',
+    badge: 'Concept',
   },
   {
     title: 'NCM Redesign',

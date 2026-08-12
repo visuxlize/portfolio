@@ -142,14 +142,15 @@ const About: React.FC = () => {
               backend systems and architecture.
             </p>
             <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 md:text-xl md:leading-relaxed">
-              I&apos;m also a Store Leader at Brooklinen, running day-to-day retail operations —
+              I&apos;m also a Store Leader at Brooklinen, running day-to-day retail operations,
               scheduling, staffing, traffic, and store performance. That floor-level ops experience
-              is exactly what pushed me to build{' '}
+              is exactly what pushed me to prototype{' '}
               <span className="font-semibold text-slate-900 dark:text-white">Brooklinen Backstage</span>,
-              an internal tool that replaced spreadsheet scheduling and manual time-off tracking
-              with one system for store leaders and HQ. I like sitting at that intersection —
-              understanding a process from the floor up, then writing the software that actually
-              simplifies it.
+              a proof-of-concept internal tool exploring how store scheduling and time-off tracking
+              could be unified into one system. The idea that actually stuck was simpler,
+              consolidating the store's scattered Google Sheets into two automated sheets the team
+              uses today. I like sitting at that intersection, understanding a process from the
+              floor up, then writing the software that actually simplifies it.
             </p>
           </div>
         </motion.div>

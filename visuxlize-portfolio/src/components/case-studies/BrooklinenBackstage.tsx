@@ -65,21 +65,21 @@ function BrowserFrame({ url = 'app.brooklinenbackstage.com', title, children }: 
 
 // ── Diagram: Architecture (SVG, forced dark) ──────────────────────────────────
 
+function layerNodeX(count: number, nw: number, g: number, i: number) {
+  const total = count * nw + (count - 1) * g;
+  const startX = (744 - total) / 2 + 8;
+  return startX + i * (nw + g) + nw / 2;
+}
+
+function LayerConnector({ x, y1, y2, markerId }: { x: number; y1: number; y2: number; markerId: string }) {
+  return (
+    <line x1={x} y1={y1} x2={x} y2={y2}
+      stroke="rgba(100,116,139,0.4)" strokeWidth="1.2" strokeDasharray="4 3"
+      markerEnd={`url(#${markerId})`} />
+  );
+}
+
 function ArchitectureDiagram() {
-  function cx(count: number, nw: number, g: number, i: number) {
-    const total = count * nw + (count - 1) * g;
-    const startX = (744 - total) / 2 + 8;
-    return startX + i * (nw + g) + nw / 2;
-  }
-
-  function Connector({ x, y1, y2 }: { x: number; y1: number; y2: number }) {
-    return (
-      <line x1={x} y1={y1} x2={x} y2={y2}
-        stroke="rgba(100,116,139,0.4)" strokeWidth="1.2" strokeDasharray="4 3"
-        markerEnd="url(#bb-arrow)" />
-    );
-  }
-
   const bandH = 72;
   const layers = [
     {
@@ -134,7 +134,7 @@ function ArchitectureDiagram() {
     },
   ];
 
-  const nodeCX = layers.map(l => l.nodes.map((_, i) => cx(l.nodes.length, l.nw, l.ng, i)));
+  const nodeCX = layers.map(l => l.nodes.map((_, i) => layerNodeX(l.nodes.length, l.nw, l.ng, i)));
 
   return (
     <DiagramWrap title="System Architecture Diagram">
@@ -171,9 +171,9 @@ function ArchitectureDiagram() {
               })}
               {li < layers.length - 1 && (
                 <>
-                  <Connector x={nodeCX[li][0]} y1={layer.y + bandH} y2={layers[li + 1].y - 1} />
+                  <LayerConnector x={nodeCX[li][0]} y1={layer.y + bandH} y2={layers[li + 1].y - 1} markerId="bb-arrow" />
                   {layer.nodes.length >= 2 && (
-                    <Connector x={nodeCX[li][layer.nodes.length - 1]} y1={layer.y + bandH} y2={layers[li + 1].y - 1} />
+                    <LayerConnector x={nodeCX[li][layer.nodes.length - 1]} y1={layer.y + bandH} y2={layers[li + 1].y - 1} markerId="bb-arrow" />
                   )}
                 </>
               )}
@@ -200,6 +200,155 @@ function RtoSyncDiagram() {
   ];
   return (
     <DiagramWrap title="RTO → Schedule Sync">
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+        {steps.map((s, i) => (
+          <React.Fragment key={s.n}>
+            <div className="rounded-xl p-3" style={{ background: `${s.color}14`, border: `1px solid ${s.color}40` }}>
+              <p className="text-[10px] font-bold mb-1.5" style={{ color: s.color }}>{s.n}</p>
+              <p className="text-xs font-semibold text-white/85 leading-snug mb-1">{s.title}</p>
+              <p className="text-[10.5px] text-white/45 leading-snug">{s.desc}</p>
+            </div>
+            {i < steps.length - 1 && (
+              <div className="hidden sm:flex items-center justify-center text-white/20">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </DiagramWrap>
+  );
+}
+
+// ── Diagram: Google Sheets automation architecture ────────────────────────────
+
+function SheetsArchitectureDiagram() {
+  const bandH = 72;
+  const layers = [
+    {
+      label: 'SIDEBAR UI', sub: 'HTML + CSS + google.script.run',
+      labelColor: 'rgba(200,210,225,0.75)', fill: 'rgba(255,255,255,0.04)', stroke: 'rgba(255,255,255,0.11)',
+      y: 8,
+      nodes: [
+        { label: 'Hours',  sub: '' },
+        { label: 'RTOs',   sub: '' },
+        { label: 'Avail',  sub: '' },
+        { label: 'Team',   sub: '' },
+        { label: 'Budget', sub: '' },
+        { label: 'Email',  sub: '' },
+        { label: 'Store',  sub: '' },
+        { label: 'Promos', sub: '' },
+      ],
+      nw: 78, ng: 6,
+    },
+    {
+      label: 'SERVER FUNCTIONS', sub: 'Sidebar.gs + ScheduleAutomation.gs',
+      labelColor: '#4ade80', fill: 'rgba(74,222,128,0.08)', stroke: 'rgba(74,222,128,0.28)',
+      y: 96,
+      nodes: [
+        { label: 'getSidebarData', sub: 'batch read, 2 calls' },
+        { label: 'onEdit Handler', sub: 'shift math' },
+        { label: 'approve/denyRTO', sub: 'writes col F' },
+        { label: 'saveBudgetValue', sub: 'per-cell write' },
+        { label: 'sendShiftEmails', sub: 'Gmail + Calendar' },
+        { label: 'pullPromoCalendar', sub: 'HQ calendar merge' },
+      ],
+      nw: 110, ng: 8,
+    },
+    {
+      label: 'SHARED CORE', sub: 'Core.gs',
+      labelColor: '#fbbf24', fill: 'rgba(251,191,36,0.07)', stroke: 'rgba(251,191,36,0.25)',
+      y: 184,
+      nodes: [
+        { label: 'detectLayout()',   sub: 'scans col A per sheet' },
+        { label: 'Keyword Rules',    sub: 'OFF/PTO/HOL/RTO' },
+        { label: 'Time Parsing',     sub: '12hr / 24hr / serial' },
+        { label: 'Store + Emp Maps', sub: 'Retail Store Data' },
+      ],
+      nw: 168, ng: 10,
+    },
+    {
+      label: 'GOOGLE WORKSPACE DATA', sub: '',
+      labelColor: 'rgba(45,212,191,0.85)', fill: 'rgba(20,184,166,0.07)', stroke: 'rgba(20,184,166,0.25)',
+      y: 272,
+      nodes: [
+        { label: 'Schedule Sheet',       sub: 'month tabs' },
+        { label: 'Retail Store Data',    sub: 'roster + emails' },
+        { label: 'Availability + RTO',   sub: 'time-off sources' },
+        { label: 'Gmail + Calendar',     sub: 'invites + notices' },
+      ],
+      nw: 168, ng: 10,
+    },
+  ];
+
+  const nodeCX = layers.map(l => l.nodes.map((_, i) => layerNodeX(l.nodes.length, l.nw, l.ng, i)));
+
+  return (
+    <DiagramWrap title="Google Sheets Automation — System Diagram">
+      <svg viewBox="0 0 760 380" className="w-full" style={{ minWidth: 480, fontFamily: 'DM Sans, sans-serif' }}>
+        <defs>
+          <marker id="gs-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L7,3 z" fill="rgba(100,116,139,0.55)" />
+          </marker>
+        </defs>
+
+        {layers.map((layer, li) => {
+          const nodeY = layer.y + 20;
+          const nodeH = bandH - 26;
+          return (
+            <g key={layer.label}>
+              <rect x="8" y={layer.y} width="744" height={bandH} rx="10"
+                fill={layer.fill} stroke={layer.stroke} strokeWidth="1.2" />
+              <text x="22" y={layer.y + 14} fontSize="9" fontWeight="700" letterSpacing="1.4" fill={layer.labelColor}>
+                {layer.label}
+                {layer.sub && <tspan fill="rgba(255,255,255,0.25)" fontWeight="400"> — {layer.sub}</tspan>}
+              </text>
+              {layer.nodes.map((node, ni) => {
+                const nx = nodeCX[li][ni] - layer.nw / 2;
+                return (
+                  <g key={node.label}>
+                    <rect x={nx} y={nodeY} width={layer.nw} height={nodeH} rx="7"
+                      fill="rgba(255,255,255,0.05)" stroke={layer.stroke} strokeWidth="1" />
+                    <text x={nodeCX[li][ni]} y={nodeY + nodeH / 2 - (node.sub ? 4 : -1)} textAnchor="middle"
+                      fill="rgba(255,255,255,0.88)" fontSize="9.5" fontWeight="600">{node.label}</text>
+                    {node.sub && (
+                      <text x={nodeCX[li][ni]} y={nodeY + nodeH / 2 + 11} textAnchor="middle"
+                        fill="rgba(255,255,255,0.38)" fontSize="8">{node.sub}</text>
+                    )}
+                  </g>
+                );
+              })}
+              {li < layers.length - 1 && (
+                <>
+                  <LayerConnector x={nodeCX[li][0]} y1={layer.y + bandH} y2={layers[li + 1].y - 1} markerId="gs-arrow" />
+                  {layer.nodes.length >= 2 && (
+                    <LayerConnector x={nodeCX[li][layer.nodes.length - 1]} y1={layer.y + bandH} y2={layers[li + 1].y - 1} markerId="gs-arrow" />
+                  )}
+                </>
+              )}
+            </g>
+          );
+        })}
+        <text x="380" y="366" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.18)">
+          One onEdit trigger and a handful of sidebar-triggered server calls read and write spreadsheet ranges directly, no database in between
+        </text>
+      </svg>
+    </DiagramWrap>
+  );
+}
+
+// ── Diagram: onEdit automation flow ────────────────────────────────────────────
+
+function SheetsFlowDiagram() {
+  const steps = [
+    { n: '01', title: 'Cell Edited',      desc: 'User types Start, End, or a keyword (OFF/PTO/RTO...) into a shift cell', color: '#94a3b8' },
+    { n: '02', title: 'onEdit Fires',     desc: 'Single trigger, scoped to the Schedule sheet and employee rows only', color: '#94a3b8' },
+    { n: '03', title: 'Classify Entry',   desc: 'Keyword merges + colors the cell, a time pair calculates hours, blank resets the day', color: '#94a3b8' },
+    { n: '04', title: 'Apply Break Rule', desc: 'Raw hours 9+ subtract 1hr, 5.5+ subtract 0.5hr, otherwise no deduction', color: '#4ade80' },
+    { n: '05', title: 'Recalc WTD',       desc: 'SUM formula written to the week-to-date column, only that day\'s 3 cells touched', color: '#86efac' },
+  ];
+  return (
+    <DiagramWrap title="onEdit → Hours Calculation Flow">
       <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
         {steps.map((s, i) => (
           <React.Fragment key={s.n}>
@@ -339,6 +488,7 @@ const BrooklinenBackstage: React.FC = () => {
               <span className="rounded-full px-3 py-1 text-xs font-semibold" style={{ color: ACCENT, background: `${ACCENT}1a`, border: `1px solid ${ACCENT}4d` }}>
                 Retail Operations
               </span>
+              <span className="rounded-full border border-amber-500/40 bg-amber-950/40 px-3 py-1 text-xs font-semibold text-amber-400">Proof of Concept</span>
               <span className="rounded-full border border-teal-500/40 bg-teal-950/40 px-3 py-1 text-xs font-semibold text-teal-400">Live Showcase</span>
             </div>
             <SectionLabel>Case Study</SectionLabel>
@@ -346,8 +496,9 @@ const BrooklinenBackstage: React.FC = () => {
               Brooklinen Backstage
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
-              Multi-store retail operations platform — scheduling, time-off, availability, traffic analytics,
-              and daily ops for an 8-store team, replacing spreadsheets, group chats, and paper.
+              A proof-of-concept retail operations platform, scheduling, time-off, availability,
+              traffic analytics, and daily ops, built to show how an 8-store team's spreadsheets,
+              group chats, and paper processes could be unified into one system.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
               <a href="https://visuxlize.github.io/Brooklinen-Backstage" target="_blank" rel="noopener noreferrer"
@@ -371,6 +522,24 @@ const BrooklinenBackstage: React.FC = () => {
             <StatCard value="13" label="Migrations" sub="Drizzle ORM" />
           </motion.div>
         </motion.div>
+
+        <div className="my-14 h-px bg-[var(--border)]" />
+
+        {/* ── Why This Is a Concept ── */}
+        <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="mb-14">
+          <motion.div variants={fade}>
+            <SectionLabel>Why This Is a Concept</SectionLabel>
+            <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-4">A proof of concept, not a company-wide rollout</h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Brooklinen Backstage was built as a proof of concept: a working demonstration of how the store's
+              separate Google Sheets systems could be consolidated into one internal tool instead of living in
+              disconnected spreadsheets. The goal was to show the integration pattern and the operator experience
+              end to end, not to ship a company-wide production system. It was designed from the perspective of
+              the people who would actually use it, the retail store teams, using real store workflows as the
+              reference model.
+            </p>
+          </motion.div>
+        </motion.section>
 
         <div className="my-14 h-px bg-[var(--border)]" />
 
@@ -400,7 +569,7 @@ const BrooklinenBackstage: React.FC = () => {
         <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="mb-14">
           <motion.div variants={fade}>
             <SectionLabel>The Solution</SectionLabel>
-            <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-6">Six modules, one system of record</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-6">Six modules, one unified concept</h2>
           </motion.div>
           <motion.div variants={stagger} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {moduleMap.map(({ Icon, color, title, desc }) => (
@@ -504,13 +673,59 @@ const BrooklinenBackstage: React.FC = () => {
           </div>
         </motion.section>
 
+        <div className="my-14 h-px bg-[var(--border)]" />
+
+        {/* ── What Actually Shipped ── */}
+        <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="mb-14">
+          <motion.div variants={fade}>
+            <SectionLabel>What Actually Shipped</SectionLabel>
+            <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-4">The adopted outcome was smaller than the app</h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Backstage above is the concept. What the store team actually adopted came out of the same problem,
+              solved with a lighter tool built on what stores already had open every day, Google Sheets. The
+              store's 5 to 6 disconnected sheets, covering scheduling, inventory transfers, SPA goal tracking,
+              and nightly recaps, got consolidated into two automated sheets, a wakeup and recap sheet and an
+              automated scheduling sheet, both built with JavaScript and Google Apps Script. It was a short-term
+              fix for problems we were facing at the retail level. Backstage stays on the table as a future
+              project if there's ever a reason to move past spreadsheets.
+            </p>
+          </motion.div>
+
+          <motion.div variants={fade} className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <StatCard value="5" label=".gs Files"         sub="Core, Schedule, Sidebar..." />
+            <StatCard value="8" label="Sidebar Panels"    sub="Hours, RTO, Budget..." />
+            <StatCard value="1" label="onEdit Trigger"    sub="Whole automation layer" />
+            <StatCard value="2" label="Automated Sheets"  sub="Scheduling + wakeup/recap" />
+          </motion.div>
+
+          <motion.div variants={fade} className="mt-8">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Sidebar panels</p>
+            <div className="flex flex-wrap gap-2">
+              {['Hours Tracker', 'RTO Approvals', 'Availability', 'Team Roster', 'Budget Editor',
+                'Email + Calendar Sync', 'Store Switch', 'Promo Calendar Pull'].map(t => (
+                <span key={t} className="chip">{t}</span>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div variants={fade} className="mt-8">
+            <SheetsArchitectureDiagram />
+          </motion.div>
+
+          <motion.div variants={fade} className="mt-8">
+            <SheetsFlowDiagram />
+          </motion.div>
+        </motion.section>
+
+        <div className="my-14 h-px bg-[var(--border)]" />
+
         {/* ── Footer CTA ── */}
         <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
           <motion.div variants={fade} className="card-base p-8 text-center border-l-2" style={{ borderLeftColor: ACCENT }}>
             <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">See it in action</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-5 max-w-md mx-auto">
-              The live showcase is read-only and uses fictional data — reach out for a walkthrough of the
-              real app. Access code required.
+              The live showcase is read-only and uses fictional data, reach out for a walkthrough of the
+              working prototype.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <a href="https://visuxlize.github.io/Brooklinen-Backstage" target="_blank" rel="noopener noreferrer"
