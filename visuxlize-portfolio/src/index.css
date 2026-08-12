@@ -20,11 +20,37 @@
     --card: rgba(255, 255, 255, 0.04);
     --elevated: #090d0c;
     --elevated-border: rgba(255, 255, 255, 0.1);
+
+    /* UML/architecture diagram panels (BrooklinenBackstage etc.) */
+    --diagram-bg: #0d1117;
+    --diagram-border: rgba(255, 255, 255, 0.08);
+    --diagram-title: rgba(255, 255, 255, 0.25);
+    --diagram-band-fill: rgba(255, 255, 255, 0.04);
+    --diagram-band-stroke: rgba(255, 255, 255, 0.11);
+    --diagram-band-label: rgba(200, 210, 225, 0.75);
+    --diagram-band-sub: rgba(255, 255, 255, 0.25);
+    --diagram-node-fill: rgba(255, 255, 255, 0.05);
+    --diagram-node-text: rgba(255, 255, 255, 0.88);
+    --diagram-node-sub: rgba(255, 255, 255, 0.38);
+    --diagram-caption: rgba(255, 255, 255, 0.18);
   }
 
   :root:not(.dark) {
     --elevated: #ffffff;
     --elevated-border: rgba(15, 23, 42, 0.1);
+
+    /* UML/architecture diagram panels (BrooklinenBackstage etc.) */
+    --diagram-bg: #ffffff;
+    --diagram-border: rgba(15, 23, 42, 0.1);
+    --diagram-title: rgba(15, 23, 42, 0.35);
+    --diagram-band-fill: rgba(15, 23, 42, 0.035);
+    --diagram-band-stroke: rgba(15, 23, 42, 0.12);
+    --diagram-band-label: rgba(51, 65, 85, 0.85);
+    --diagram-band-sub: rgba(15, 23, 42, 0.35);
+    --diagram-node-fill: rgba(15, 23, 42, 0.035);
+    --diagram-node-text: rgba(15, 23, 42, 0.85);
+    --diagram-node-sub: rgba(15, 23, 42, 0.42);
+    --diagram-caption: rgba(15, 23, 42, 0.32);
   }
 
   html {

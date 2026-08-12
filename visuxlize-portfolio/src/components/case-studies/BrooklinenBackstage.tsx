@@ -33,9 +33,9 @@ function StatCard({ value, label, sub }: { value: string; label: string; sub?: s
 
 function DiagramWrap({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl overflow-hidden" style={{ background: '#0d1117', border: '1px solid rgba(255,255,255,0.08)' }}>
+    <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--diagram-bg)', border: '1px solid var(--diagram-border)' }}>
       <div className="px-6 pt-5 pb-0">
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '10px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' }}>{title}</p>
+        <p style={{ color: 'var(--diagram-title)', fontSize: '10px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' }}>{title}</p>
       </div>
       <div className="p-6 pt-4">{children}</div>
     </div>
@@ -84,7 +84,7 @@ function ArchitectureDiagram() {
   const layers = [
     {
       label: 'PRESENTATION LAYER', sub: 'Next.js 15 App Router',
-      labelColor: 'rgba(200,210,225,0.75)', fill: 'rgba(255,255,255,0.04)', stroke: 'rgba(255,255,255,0.11)',
+      labelColor: 'var(--diagram-band-label)', fill: 'var(--diagram-band-fill)', stroke: 'var(--diagram-band-stroke)',
       y: 8,
       nodes: [
         { label: 'Dashboard',  sub: 'overview' },
@@ -154,18 +154,18 @@ function ArchitectureDiagram() {
                 fill={layer.fill} stroke={layer.stroke} strokeWidth="1.2" />
               <text x="22" y={layer.y + 14} fontSize="9" fontWeight="700" letterSpacing="1.4" fill={layer.labelColor}>
                 {layer.label}
-                {layer.sub && <tspan fill="rgba(255,255,255,0.25)" fontWeight="400"> — {layer.sub}</tspan>}
+                {layer.sub && <tspan fill="var(--diagram-band-sub)" fontWeight="400"> — {layer.sub}</tspan>}
               </text>
               {layer.nodes.map((node, ni) => {
                 const nx = nodeCX[li][ni] - layer.nw / 2;
                 return (
                   <g key={node.label}>
                     <rect x={nx} y={nodeY} width={layer.nw} height={nodeH} rx="7"
-                      fill="rgba(255,255,255,0.05)" stroke={layer.stroke} strokeWidth="1" />
+                      fill="var(--diagram-node-fill)" stroke={layer.stroke} strokeWidth="1" />
                     <text x={nodeCX[li][ni]} y={nodeY + nodeH / 2 - 4} textAnchor="middle"
-                      fill="rgba(255,255,255,0.88)" fontSize="10.5" fontWeight="600">{node.label}</text>
+                      fill="var(--diagram-node-text)" fontSize="10.5" fontWeight="600">{node.label}</text>
                     <text x={nodeCX[li][ni]} y={nodeY + nodeH / 2 + 11} textAnchor="middle"
-                      fill="rgba(255,255,255,0.38)" fontSize="8.5">{node.sub}</text>
+                      fill="var(--diagram-node-sub)" fontSize="8.5">{node.sub}</text>
                   </g>
                 );
               })}
@@ -180,7 +180,7 @@ function ArchitectureDiagram() {
             </g>
           );
         })}
-        <text x="380" y="366" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.18)">
+        <text x="380" y="366" textAnchor="middle" fontSize="9" fill="var(--diagram-caption)">
           Data flows from server actions through Drizzle into Supabase PostgreSQL, scoped per store
         </text>
       </svg>
@@ -205,11 +205,11 @@ function RtoSyncDiagram() {
           <React.Fragment key={s.n}>
             <div className="rounded-xl p-3" style={{ background: `${s.color}14`, border: `1px solid ${s.color}40` }}>
               <p className="text-[10px] font-bold mb-1.5" style={{ color: s.color }}>{s.n}</p>
-              <p className="text-xs font-semibold text-white/85 leading-snug mb-1">{s.title}</p>
-              <p className="text-[10.5px] text-white/45 leading-snug">{s.desc}</p>
+              <p className="text-xs font-semibold text-slate-800 dark:text-white/85 leading-snug mb-1">{s.title}</p>
+              <p className="text-[10.5px] text-slate-500 dark:text-white/45 leading-snug">{s.desc}</p>
             </div>
             {i < steps.length - 1 && (
-              <div className="hidden sm:flex items-center justify-center text-white/20">
+              <div className="hidden sm:flex items-center justify-center text-slate-300 dark:text-white/20">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
             )}
@@ -227,7 +227,7 @@ function SheetsArchitectureDiagram() {
   const layers = [
     {
       label: 'SIDEBAR UI', sub: 'HTML + CSS + google.script.run',
-      labelColor: 'rgba(200,210,225,0.75)', fill: 'rgba(255,255,255,0.04)', stroke: 'rgba(255,255,255,0.11)',
+      labelColor: 'var(--diagram-band-label)', fill: 'var(--diagram-band-fill)', stroke: 'var(--diagram-band-stroke)',
       y: 8,
       nodes: [
         { label: 'Hours',  sub: '' },
@@ -301,19 +301,19 @@ function SheetsArchitectureDiagram() {
                 fill={layer.fill} stroke={layer.stroke} strokeWidth="1.2" />
               <text x="22" y={layer.y + 14} fontSize="9" fontWeight="700" letterSpacing="1.4" fill={layer.labelColor}>
                 {layer.label}
-                {layer.sub && <tspan fill="rgba(255,255,255,0.25)" fontWeight="400"> — {layer.sub}</tspan>}
+                {layer.sub && <tspan fill="var(--diagram-band-sub)" fontWeight="400"> — {layer.sub}</tspan>}
               </text>
               {layer.nodes.map((node, ni) => {
                 const nx = nodeCX[li][ni] - layer.nw / 2;
                 return (
                   <g key={node.label}>
                     <rect x={nx} y={nodeY} width={layer.nw} height={nodeH} rx="7"
-                      fill="rgba(255,255,255,0.05)" stroke={layer.stroke} strokeWidth="1" />
+                      fill="var(--diagram-node-fill)" stroke={layer.stroke} strokeWidth="1" />
                     <text x={nodeCX[li][ni]} y={nodeY + nodeH / 2 - (node.sub ? 4 : -1)} textAnchor="middle"
-                      fill="rgba(255,255,255,0.88)" fontSize="9.5" fontWeight="600">{node.label}</text>
+                      fill="var(--diagram-node-text)" fontSize="9.5" fontWeight="600">{node.label}</text>
                     {node.sub && (
                       <text x={nodeCX[li][ni]} y={nodeY + nodeH / 2 + 11} textAnchor="middle"
-                        fill="rgba(255,255,255,0.38)" fontSize="8">{node.sub}</text>
+                        fill="var(--diagram-node-sub)" fontSize="8">{node.sub}</text>
                     )}
                   </g>
                 );
@@ -329,7 +329,7 @@ function SheetsArchitectureDiagram() {
             </g>
           );
         })}
-        <text x="380" y="366" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.18)">
+        <text x="380" y="366" textAnchor="middle" fontSize="9" fill="var(--diagram-caption)">
           One onEdit trigger and a handful of sidebar-triggered server calls read and write spreadsheet ranges directly, no database in between
         </text>
       </svg>
@@ -354,11 +354,11 @@ function SheetsFlowDiagram() {
           <React.Fragment key={s.n}>
             <div className="rounded-xl p-3" style={{ background: `${s.color}14`, border: `1px solid ${s.color}40` }}>
               <p className="text-[10px] font-bold mb-1.5" style={{ color: s.color }}>{s.n}</p>
-              <p className="text-xs font-semibold text-white/85 leading-snug mb-1">{s.title}</p>
-              <p className="text-[10.5px] text-white/45 leading-snug">{s.desc}</p>
+              <p className="text-xs font-semibold text-slate-800 dark:text-white/85 leading-snug mb-1">{s.title}</p>
+              <p className="text-[10.5px] text-slate-500 dark:text-white/45 leading-snug">{s.desc}</p>
             </div>
             {i < steps.length - 1 && (
-              <div className="hidden sm:flex items-center justify-center text-white/20">
+              <div className="hidden sm:flex items-center justify-center text-slate-300 dark:text-white/20">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
             )}
