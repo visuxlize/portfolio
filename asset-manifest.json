@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.80a49de8.css",
+    "main.js": "/portfolio/static/js/main.5e4ba21c.js",
+    "static/media/11-prop-builder-add-to-slip.png": "/portfolio/static/media/11-prop-builder-add-to-slip.0b8d9f8ccbdcc3289a1c.png",
+    "static/media/09-prop-builder-home-run.png": "/portfolio/static/media/09-prop-builder-home-run.3ed9d4f056e3cac17f26.png",
+    "static/media/02-scores-tab.png": "/portfolio/static/media/02-scores-tab.ba2ddc326100028275f4.png",
+    "static/media/06-analysis-matchups.png": "/portfolio/static/media/06-analysis-matchups.555256d10c4d6593dea0.png",
+    "static/media/03-game-detail-pitchers-weather.png": "/portfolio/static/media/03-game-detail-pitchers-weather.e096875b1ad895cb5b05.png",
+    "static/media/13-settings-account-bet-history.png": "/portfolio/static/media/13-settings-account-bet-history.82b569f2111a71bb7789.png",
+    "static/media/01-today-dashboard.png": "/portfolio/static/media/01-today-dashboard.1ad718ff88bee09e6034.png",
+    "static/media/07-analysis-edge-report.png": "/portfolio/static/media/07-analysis-edge-report.ca7d5715d79700735e18.png",
+    "static/media/08-analysis-props.png": "/portfolio/static/media/08-analysis-props.92193d0c267006a5a6ac.png",
+    "static/media/12-prop-builder-your-slip.png": "/portfolio/static/media/12-prop-builder-your-slip.f5925db9b12cca784690.png",
+    "static/media/18-onboarding-02-responsible-gaming.png": "/portfolio/static/media/18-onboarding-02-responsible-gaming.00654fcfc96d21203521.png",
+    "static/media/04-game-detail-edge-analysis-batter-props.png": "/portfolio/static/media/04-game-detail-edge-analysis-batter-props.1daa362c515eba2177d7.png",
+    "static/media/17-onboarding-01-intro.png": "/portfolio/static/media/17-onboarding-01-intro.88ee184d4135a3c2e3c8.png",
+    "static/media/16-auth-sign-in.png": "/portfolio/static/media/16-auth-sign-in.80f8000a0774542afea6.png",
+    "static/media/19-onboarding-03-smarter.png": "/portfolio/static/media/19-onboarding-03-smarter.b82934d7aebd56a56c00.png",
+    "static/media/20-auth-create-account.png": "/portfolio/static/media/20-auth-create-account.ec28fcceb8ab6015bee1.png",
+    "static/media/05-player-profile-dominic-smith.png": "/portfolio/static/media/05-player-profile-dominic-smith.b194c38c8817707c264b.png",
+    "static/media/10-prop-builder-select-game.png": "/portfolio/static/media/10-prop-builder-select-game.d8a52f92ae2ab17e4c96.png",
+    "static/media/14-settings-parlay-detail.png": "/portfolio/static/media/14-settings-parlay-detail.db3e7d0d4b8e86ef3a35.png",
+    "static/media/15-onboarding-choose-team.png": "/portfolio/static/media/15-onboarding-choose-team.adb876487efb40e8d3f4.png",
+    "static/media/monarca-home.jpg": "/portfolio/static/media/monarca-home.0680aa252555e04bc880.jpg",
+    "index.html": "/portfolio/index.html",
+    "main.80a49de8.css.map": "/portfolio/static/css/main.80a49de8.css.map",
+    "main.5e4ba21c.js.map": "/portfolio/static/js/main.5e4ba21c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.80a49de8.css",
+    "static/js/main.5e4ba21c.js"
+  ]
+}
