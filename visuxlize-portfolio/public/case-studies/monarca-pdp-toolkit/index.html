@@ -272,6 +272,24 @@
   </div>
 </section>
 
+<!-- A/B TEST -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">The experiment</p>
+    <h2 class="section-title">One clean test, run properly.</h2>
+    <p class="lead">Testing is a discipline, not a guess. Here is the documented A/B test built into the demo, written the way a DTC team would actually run it.</p>
+    <div class="matrix">
+      <div class="mrow"><span class="need">Hypothesis</span><span class="have">Pre-selecting subscribe and save, instead of one-time, lifts the subscription rate without hurting overall conversion or refund rate. Most buyers accept a sensible default, so framing the subscription as the normal choice should start more of them.</span></div>
+      <div class="mrow"><span class="need">Variants</span><span class="have">Control A: one-time purchase pre-selected. Variant B: subscribe and save pre-selected. Split 50/50, with visitors held to one version across their visit.</span></div>
+      <div class="mrow"><span class="need">Primary metric</span><span class="have">Subscription rate, meaning subscription orders divided by total orders.</span></div>
+      <div class="mrow"><span class="need">Guardrails</span><span class="have">Overall conversion rate, average order value, and 30-day refund or cancel rate. A win means the primary goes up while none of these move meaningfully against us.</span></div>
+      <div class="mrow"><span class="need">Duration and stopping rule</span><span class="have">Decide the minimum effect worth shipping before starting. Run until each arm hits its sample size, or a fixed two-week window, whichever is later. No stopping early on a lucky swing.</span></div>
+      <div class="mrow"><span class="need">Reading the result</span><span class="have">Compare the two arms with a two-proportion significance check. Ship the variant only if the lift is both statistically real and big enough to matter, with guardrails intact.</span></div>
+    </div>
+    <p style="margin-top:1.5rem; color:var(--muted); font-size:.9rem;">Honest note: a demo store has little traffic, so this shows correct methodology rather than proven numbers. The value is that the experiment is designed right and I can walk anyone through the reasoning. I would never dress up a thin sample as a real result.</p>
+  </div>
+</section>
+
 <!-- CAPABILITY MATRIX -->
 <section>
   <div class="wrap reveal">
