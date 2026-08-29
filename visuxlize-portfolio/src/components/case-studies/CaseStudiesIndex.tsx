@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft, ArrowRight, BarChart3, LayoutDashboard, Truck,
-  Scissors, Music2, Layout, GraduationCap,
+  Scissors, Music2, Layout, GraduationCap, ShoppingBag,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -94,10 +94,20 @@ const caseStudies: CaseStudy[] = [
     icon: Layout,
     accent: '#0284c7',
   },
+  {
+    number: '07',
+    title: 'Monarca Shopify CRO',
+    category: 'Shopify CRO',
+    description: 'Working Shopify demo and conversion proposal for a DTC supplement brand — subscribe and save, bundle upsells, and PDP CRO built to win the build in-house.',
+    tags: ['Shopify', 'CRO', 'Dawn Theme'],
+    path: '/monarca',
+    icon: ShoppingBag,
+    accent: '#c98a2b',
+  },
 ];
 
 const coursework: CaseStudy = {
-  number: '07',
+  number: '08',
   title: 'Academic Projects — Coursework',
   category: 'B.S. Software Development',
   description:
@@ -129,7 +139,7 @@ function FeaturedCard({ cs }: { cs: CaseStudy }) {
             >
               {cs.category}
             </span>
-            <span className="text-[11px] font-semibold text-white/30">Case Study {cs.number} / 07</span>
+            <span className="text-[11px] font-semibold text-white/30">Case Study {cs.number} / 08</span>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <div
@@ -177,7 +187,7 @@ function CaseCard({ cs }: { cs: CaseStudy }) {
         >
           <Icon size={19} style={{ color: cs.accent }} strokeWidth={1.8} />
         </div>
-        <span className="text-[11px] font-semibold text-slate-400">{cs.number} / 07</span>
+        <span className="text-[11px] font-semibold text-slate-400">{cs.number} / 08</span>
       </div>
       <p className="text-[10px] font-bold uppercase tracking-widest mb-1.5" style={{ color: cs.accent }}>{cs.category}</p>
       <h3 className="font-display text-base font-bold text-slate-900 dark:text-white mb-2">{cs.title}</h3>
@@ -233,12 +243,12 @@ const CaseStudiesIndex: React.FC = () => {
             <FeaturedCard cs={featured} />
           </motion.div>
 
-          <motion.div variants={stagger} className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {caseStudies.slice(0, 2).map((cs) => <CaseCard key={cs.number} cs={cs} />)}
+          <motion.div variants={stagger} className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {caseStudies.slice(0, 3).map((cs) => <CaseCard key={cs.number} cs={cs} />)}
           </motion.div>
 
           <motion.div variants={stagger} className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {caseStudies.slice(2, 5).map((cs) => <CaseCard key={cs.number} cs={cs} />)}
+            {caseStudies.slice(3, 7).map((cs) => <CaseCard key={cs.number} cs={cs} />)}
           </motion.div>
 
           <motion.div variants={fade} className="mt-6">

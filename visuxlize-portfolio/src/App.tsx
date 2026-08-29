@@ -15,6 +15,7 @@ import Brasena from './components/case-studies/Brasena';
 import HeadzAintReady from './components/case-studies/HeadzAintReady';
 import SavageEntertainment from './components/case-studies/SavageEntertainment';
 import NCMRedesign from './components/case-studies/NCMRedesign';
+import Monarca from './components/case-studies/Monarca';
 
 function SectionDivider() {
   return (
@@ -76,6 +77,7 @@ function App() {
           <Route path="/headz" element={<HeadzAintReady />} />
           <Route path="/savage" element={<SavageEntertainment />} />
           <Route path="/ncm" element={<NCMRedesign />} />
+          <Route path="/monarca" element={<Monarca />} />
           <Route path="/coursework" element={<Coursework />} />
         </Routes>
       </AppShell>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal for Alex Gonzalez, DTC Shopify Build, Andres Marte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1f3d2b;
+    --forest-deep: #142619;
+    --amber: #c98a2b;
+    --cream: #f3efe5;
+    --paper: #fbf9f3;
+    --ink: #23231f;
+    --muted: #6f6d63;
+    --line: #ded8c8;
+    --maxw: 940px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; line-height: 1.12; margin: 0; }
+  p { margin: 0 0 1rem; }
+  a { color: var(--forest); }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow {
+    font-size: .72rem; text-transform: uppercase; letter-spacing: .18em;
+    font-weight: 600; color: var(--amber); margin: 0 0 1rem;
+  }
+  section { padding: 4.5rem 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: 0; }
+
+  /* Hero */
+  .hero {
+    background: var(--forest-deep);
+    color: #f3efe5;
+    padding: 5.5rem 0 5rem;
+    border-top: 0;
+  }
+  .hero .eyebrow { color: var(--amber); }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: -0.01em; max-width: 16ch; }
+  .hero p.lede { font-size: 1.2rem; color: #cfd6c8; max-width: 52ch; margin-top: 1.5rem; }
+  .hero .meta { margin-top: 2.5rem; font-size: .95rem; color: #a9b3a0; }
+  .hero .meta strong { color: #f3efe5; font-weight: 600; }
+  .butterfly { width: 46px; height: 46px; margin-bottom: 1.5rem; }
+
+  /* Section headings */
+  h2.section-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin-bottom: 1.5rem; max-width: 22ch; }
+  .lead { font-size: 1.12rem; color: #3a3a33; max-width: 60ch; }
+
+  /* Cards & grids */
+  .grid { display: grid; gap: 1.25rem; }
+  @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .card {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem;
+  }
+  .card h3 { font-size: 1.15rem; margin-bottom: .5rem; }
+  .card p { font-size: .95rem; color: var(--muted); margin: 0; }
+
+  /* Research callouts */
+  .facts { display: grid; gap: .8rem; margin: 1.5rem 0 0; }
+  .fact { display: flex; gap: .9rem; align-items: baseline; font-size: .98rem; }
+  .fact .k { color: var(--amber); font-weight: 700; font-family: 'Fraunces', serif; min-width: 2.2rem; }
+
+  /* Palette */
+  .swatches { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+  .swatch { border-radius: 10px; padding: .9rem 1rem; font-size: .78rem; font-weight: 600; border: 1px solid rgba(0,0,0,.06); }
+
+  /* Capability matrix */
+  .matrix { display: grid; gap: 0; margin-top: 1.5rem; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .mrow { display: grid; grid-template-columns: 1fr; gap: .2rem; padding: 1.1rem 1.25rem; border-top: 1px solid var(--line); }
+  .mrow:first-child { border-top: 0; }
+  @media (min-width: 720px) { .mrow { grid-template-columns: 230px 1fr; gap: 1.5rem; align-items: start; } }
+  .mrow .need { font-weight: 600; color: var(--forest); }
+  .mrow .have { color: #3a3a33; font-size: .96rem; }
+
+  /* Screenshot showcase */
+  .shot { margin-top: 2rem; }
+  .shot img { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; box-shadow: 0 12px 34px rgba(20,38,25,.10); }
+  .shot .cap { font-size: .9rem; color: var(--muted); margin-top: .75rem; padding-left: 1rem; border-left: 2px solid var(--amber); }
+
+  /* Portfolio */
+  .proj { border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; background: var(--paper); display: flex; flex-direction: column; }
+  .proj h3 { font-size: 1.2rem; margin-bottom: .35rem; }
+  .proj .role { font-size: .74rem; text-transform: uppercase; letter-spacing: .12em; color: var(--amber); font-weight: 600; margin-bottom: .8rem; }
+  .proj p { font-size: .93rem; color: var(--muted); flex: 1; }
+  .proj a { font-size: .9rem; font-weight: 600; text-decoration: none; margin-top: .8rem; display: inline-block; }
+  .proj a:hover { text-decoration: underline; }
+
+  /* Path diagram */
+  .diagram { margin-top: 2rem; width: 100%; height: auto; }
+
+  /* Close */
+  .close { background: var(--forest); color: #f3efe5; border-radius: 18px; padding: 3rem 2rem; text-align: center; margin-top: 1rem; }
+  .close h2 { color: #fff; font-size: 2rem; margin-bottom: 1rem; }
+  .close p { color: #cfd6c8; max-width: 46ch; margin: 0 auto 1.5rem; }
+  .btn { display: inline-block; background: var(--amber); color: #23231f; font-weight: 600; text-decoration: none; padding: .85rem 1.6rem; border-radius: 10px; }
+  .foot { text-align: center; color: var(--muted); font-size: .85rem; padding: 2.5rem 0; }
+
+  ul.clean { list-style: none; padding: 0; margin: 1rem 0 0; }
+  ul.clean li { padding-left: 1.4rem; position: relative; margin-bottom: .55rem; color: #3a3a33; font-size: .98rem; }
+  ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--amber); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <svg class="butterfly" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M50 50c-6-18-20-30-34-26-10 3-12 16-5 25 6 8 22 10 39 11z" fill="#c98a2b"/>
+      <path d="M50 50c6-18 20-30 34-26 10 3 12 16 5 25-6 8-22 10-39 11z" fill="#e0a648"/>
+      <path d="M50 50c-5 16-16 27-28 25-8-2-10-13-4-21 5-7 18-8 32-4z" fill="#9a6a1f"/>
+      <path d="M50 50c5 16 16 27 28 25 8-2 10-13 4-21-5-7-18-8-32-4z" fill="#b07f2a"/>
+      <rect x="48.5" y="30" width="3" height="42" rx="1.5" fill="#23231f"/>
+    </svg>
+    <p class="eyebrow">Proposal, in-house DTC build</p>
+    <h1>Someone who understands the entire path, not just the code.</h1>
+    <p class="lede">A working demo, a conversion plan, and the background to build it in-house. Put together specifically for what you described: a high-converting Shopify operation, owned end to end.</p>
+    <p class="meta">
+      Prepared for <strong>Alex Gonzalez</strong>, co-founder, Monarca Ulje<br>
+      By <strong>Andres Marte</strong>, full-stack developer and UX designer, @visuxlize
+    </p>
+  </div>
+</header>
+
+<!-- PURPOSE -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">Purpose</p>
+    <h2 class="section-title">You asked for a Shopify savage. Here is the proof, not the pitch.</h2>
+    <p class="lead">You posted that you are taking things in house and building the team from the ground up, and you listed exactly what the role needs to own. Rather than send a message claiming I can do it, I built a working Shopify store that demonstrates it. This document walks through the build, the thinking behind it, and how it maps to your business.</p>
+    <ul class="clean">
+      <li>High converting Shopify builds</li>
+      <li>PDP and landing page CRO</li>
+      <li>Testing optimization</li>
+      <li>Subscriptions and bundles</li>
+      <li>AOV optimization</li>
+      <li>Analytics and tracking</li>
+      <li>Apps and integration</li>
+      <li>Mobile UX</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">The homework</p>
+    <h2 class="section-title">What I see in your brands</h2>
+    <p class="lead">Monarca Ulje is a natural hair and scalp care brand your partner Belisa built from a garage into a warehouse and a Bronx location, reaching the US, Canada, and the Dominican Republic. The monarch butterfly stands for transformation, and the brand leads with a clear point of view: as Monarca puts it, scalp first, everything else follows. On top of that, you and your partners already operate in nutrition and smoothies in the real world, which is exactly why a supplement store is the right thing to prototype.</p>
+    <div class="facts">
+      <div class="fact"><span class="k">01</span><span>Strong brand narrative and a loyal audience already exist. The conversion job is to carry that story onto the product page, where most brands go generic.</span></div>
+      <div class="fact"><span class="k">02</span><span>A Priority Club and an affiliate program show you already think in retention and repeat purchase. That is the subscription and AOV muscle a Shopify build should amplify.</span></div>
+      <div class="fact"><span class="k">03</span><span>Consumable wellness products are the ideal case for subscribe and save. Taking the nutrition side direct to consumer is a clean growth lane, and the demo is built around it.</span></div>
+    </div>
+    <p style="margin-top:1.5rem; color:var(--muted); font-size:.9rem;">Sources: Monarca Ulje site and About page, public brand and founder coverage, and your own notes on the nutrition business. The demo uses placeholder brand assets, not Monarca's, so nothing is misrepresented.</p>
+  </div>
+</section>
+
+<!-- DESIGN CONCEPT -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">Concept of design</p>
+    <h2 class="section-title">Carry the brand to the buy button.</h2>
+    <p class="lead">The design principle is simple. Trust and story are what sell wellness, so the product page should feel like the brand and remove every reason to hesitate. Practically, that means the buy box, price, and social proof sit above the fold, the subscription is framed as the normal choice, and the page stays fast and clean on mobile, where most of the buying happens.</p>
+    <div class="swatches">
+      <span class="swatch" style="background:#1f3d2b;color:#fff;">Forest #1f3d2b</span>
+      <span class="swatch" style="background:#c98a2b;color:#fff;">Amber #c98a2b</span>
+      <span class="swatch" style="background:#f3efe5;color:#23231f;">Cream #f3efe5</span>
+      <span class="swatch" style="background:#23231f;color:#fff;">Ink #23231f</span>
+    </div>
+    <p style="margin-top:1.25rem; color:var(--muted); font-size:.92rem;">A grounded palette pulled from the wellness and butterfly world: deep green for calm and nature, amber for the monarch, warm cream for a premium, organic feel. Set once at the theme level so the whole store stays coherent.</p>
+  </div>
+</section>
+
+<!-- PATH DIAGRAM -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">The entire path</p>
+    <h2 class="section-title">Where each requirement lives in the funnel.</h2>
+    <p class="lead">You said you need someone who understands the whole path. Here it is, mapped to your list, from the visitor landing to the loop that keeps improving it.</p>
+    <svg class="diagram" viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Conversion path from traffic to iteration">
+      <defs>
+        <marker id="arrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+          <path d="M0 0 L6 3 L0 6 z" fill="#1f3d2b"/>
+        </marker>
+      </defs>
+      <!-- nodes -->
+      <g font-family="Inter, sans-serif">
+        <!-- 1 traffic -->
+        <rect x="20" y="30" width="200" height="72" rx="12" fill="#142619"/>
+        <text x="120" y="60" text-anchor="middle" fill="#f3efe5" font-size="15" font-weight="600">Traffic, mostly mobile</text>
+        <text x="120" y="82" text-anchor="middle" fill="#a9b3a0" font-size="12">Mobile UX</text>
+        <!-- 2 PDP -->
+        <rect x="350" y="30" width="200" height="72" rx="12" fill="#1f3d2b"/>
+        <text x="450" y="60" text-anchor="middle" fill="#f3efe5" font-size="15" font-weight="600">Product page</text>
+        <text x="450" y="82" text-anchor="middle" fill="#cfd6c8" font-size="12">High-converting builds, CRO</text>
+        <!-- 3 offer -->
+        <rect x="680" y="30" width="200" height="72" rx="12" fill="#1f3d2b"/>
+        <text x="780" y="60" text-anchor="middle" fill="#f3efe5" font-size="15" font-weight="600">Purchase options</text>
+        <text x="780" y="82" text-anchor="middle" fill="#cfd6c8" font-size="12">Subscriptions, bundles</text>
+        <!-- 4 AOV -->
+        <rect x="680" y="200" width="200" height="72" rx="12" fill="#c98a2b"/>
+        <text x="780" y="230" text-anchor="middle" fill="#23231f" font-size="15" font-weight="700">Bigger orders</text>
+        <text x="780" y="252" text-anchor="middle" fill="#4a3410" font-size="12">AOV optimization</text>
+        <!-- 5 analytics -->
+        <rect x="350" y="200" width="200" height="72" rx="12" fill="#1f3d2b"/>
+        <text x="450" y="230" text-anchor="middle" fill="#f3efe5" font-size="15" font-weight="600">Measure everything</text>
+        <text x="450" y="252" text-anchor="middle" fill="#cfd6c8" font-size="12">Analytics, tracking, apps</text>
+        <!-- 6 test -->
+        <rect x="20" y="200" width="200" height="72" rx="12" fill="#142619"/>
+        <text x="120" y="230" text-anchor="middle" fill="#f3efe5" font-size="15" font-weight="600">Test and iterate</text>
+        <text x="120" y="252" text-anchor="middle" fill="#a9b3a0" font-size="12">Testing optimization</text>
+        <!-- loop label -->
+        <rect x="300" y="360" width="300" height="60" rx="12" fill="none" stroke="#c98a2b" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <text x="450" y="385" text-anchor="middle" fill="#1f3d2b" font-size="14" font-weight="600">The loop that compounds</text>
+        <text x="450" y="405" text-anchor="middle" fill="#6f6d63" font-size="12">Learn, change one thing, measure, repeat</text>
+      </g>
+      <!-- connectors -->
+      <g stroke="#1f3d2b" stroke-width="2" fill="none">
+        <line x1="220" y1="66" x2="344" y2="66" marker-end="url(#arrow)"/>
+        <line x1="550" y1="66" x2="674" y2="66" marker-end="url(#arrow)"/>
+        <line x1="780" y1="102" x2="780" y2="194" marker-end="url(#arrow)"/>
+        <line x1="680" y1="236" x2="556" y2="236" marker-end="url(#arrow)"/>
+        <line x1="350" y1="236" x2="226" y2="236" marker-end="url(#arrow)"/>
+        <path d="M120 200 C120 150 250 130 344 90" marker-end="url(#arrow)"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- DEMO SHOWCASE -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">The live demo</p>
+    <h2 class="section-title">Built on a real Shopify store, not a mockup.</h2>
+    <p class="lead">A custom product page section on the Dawn theme, editable in the theme editor, with subscribe and save and a bundle wired in through standard Shopify apps. Here is what it produced.</p>
+
+    <div class="shot">
+      <img src="screenshots/home.jpg" alt="Homepage of the demo supplement store">
+      <p class="cap">Homepage. Brand palette set at the theme level, so the store reads as one coherent brand rather than a stock template.</p>
+    </div>
+
+    <div class="shot">
+      <img src="screenshots/pdp-product.jpg" alt="Product page with purchase options">
+      <p class="cap">Product page. Buy box, price, and rating above the fold. Subscribe and save is the default option, calculating the discount live. Benefits, trust row, founder story, and FAQ handle the objections that stop wellness buyers.</p>
+    </div>
+
+    <div class="shot">
+      <img src="screenshots/pdp-bundle.jpg" alt="Starter Ritual bundle product page">
+      <p class="cap">The Starter Ritual bundle. The AOV lever, raising order value without discounting the hero product into the ground.</p>
+    </div>
+
+    <p style="margin-top:1.5rem; color:var(--muted); font-size:.9rem;">Honest note: this is a working demo, so the review counts are placeholders and the store runs behind a password. The mechanics, subscriptions, bundles, live pricing, mobile sticky cart, are real and functioning.</p>
+  </div>
+</section>
+
+<!-- CAPABILITY MATRIX -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">What I can do for you</p>
+    <h2 class="section-title">Your list, line by line.</h2>
+    <div class="matrix">
+      <div class="mrow"><span class="need">High converting Shopify builds</span><span class="have">Custom Online Store 2.0 section built from scratch on Dawn, structured so it is portable across products and editable without touching code.</span></div>
+      <div class="mrow"><span class="need">PDP and landing page CRO</span><span class="have">Above-fold buy box, social proof, trust signals, and objection handling, informed by Google and MIT UX training.</span></div>
+      <div class="mrow"><span class="need">Testing optimization</span><span class="have">A documented A/B test on the subscribe-default, with a hypothesis, primary metric, guardrails, and a stopping rule.</span></div>
+      <div class="mrow"><span class="need">Subscriptions and bundles</span><span class="have">Subscribe and save and a Starter Ritual bundle, both live and integrated through standard Shopify apps.</span></div>
+      <div class="mrow"><span class="need">AOV optimization</span><span class="have">Subscription framed as default, plus a bundle upsell, the two most reliable levers on a consumable.</span></div>
+      <div class="mrow"><span class="need">Analytics and tracking</span><span class="have">GA4 and Meta pixel setup with clean events for one-time versus subscription, so every test is measurable.</span></div>
+      <div class="mrow"><span class="need">Apps and integration</span><span class="have">Comfortable wiring the app ecosystem into the theme, subscriptions, bundles, reviews, without breaking performance.</span></div>
+      <div class="mrow"><span class="need">Mobile UX</span><span class="have">Mobile-first layout with a sticky add-to-cart that keeps the CTA one tap away through the whole page.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">Background</p>
+    <h2 class="section-title">A developer who understands DTC from inside a brand.</h2>
+    <p class="lead">I am a full-stack developer and UX designer based in Queens. What makes me a fit here is not just code, it is that I have lived the DTC and retail side, and I have shipped real Shopify work.</p>
+    <div class="grid grid-2" style="margin-top:1.5rem;">
+      <div class="card"><h3>Inside a DTC brand</h3><p>Store manager at Brooklinen, where I also built the internal operations tooling used across all 8 stores. I know how a direct-to-consumer brand actually runs, not just in theory.</p></div>
+      <div class="card"><h3>Real Shopify experience</h3><p>Helped build Framebridge's Shopify system from the ground up, so I know the platform and the DTC customer path, not only the front-end.</p></div>
+      <div class="card"><h3>Design plus engineering</h3><p>Google UX Design and MIT UX/UI certifications on top of full-stack development. Conversion work sits exactly at that intersection.</p></div>
+      <div class="card"><h3>Ships and finishes</h3><p>A background that runs from architecture to software, with a habit of taking things from idea to something real and adopted.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section>
+  <div class="wrap reveal">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="section-title">Things I have actually built and shipped.</h2>
+    <div class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="proj">
+        <div class="role">Founder build</div>
+        <h3>MLB Edge Pro</h3>
+        <p>An AI-powered MLB analytics platform. Full product: web app plus a React Native iOS app in development, Stripe billing, and Clerk authentication. End-to-end product ownership.</p>
+        <a href="https://mlbedgepro.dev" target="_blank" rel="noopener">mlbedgepro.dev</a>
+      </div>
+      <div class="proj">
+        <div class="role">CTO and co-founder</div>
+        <h3>Brasena</h3>
+        <p>A wholesale delivery startup serving the Bronx. I lead the tech, from the site and DNS to a points-based referral and giveaway strategy that ties product to growth.</p>
+        <a href="https://visuxlize.github.io/portfolio/brasena" target="_blank" rel="noopener">View case study</a>
+      </div>
+      <div class="proj">
+        <div class="role">Sole developer</div>
+        <h3>Brooklinen Backstage</h3>
+        <p>Internal retail tooling for a DTC brand. The adopted win: consolidating five to six disconnected spreadsheets into two automated systems across 8 stores, saving the team 5-plus hours a week, with leadership buy-in.</p>
+        <a href="https://visuxlize.github.io/portfolio/brooklinen" target="_blank" rel="noopener">View case study</a>
+      </div>
+    </div>
+    <p style="margin-top:1.75rem;"><a href="https://visuxlize.github.io/portfolio/" target="_blank" rel="noopener" style="font-weight:600;">See the full portfolio at visuxlize.github.io/portfolio →</a></p>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section style="border-top:0;">
+  <div class="wrap reveal">
+    <div class="close">
+      <h2>Let's build it in-house, together.</h2>
+      <p>The demo store is live and ready to walk through whenever you are. If the fit feels right, the next step is a call.</p>
+      <a class="btn" href="https://visuxlize.github.io/portfolio/" target="_blank" rel="noopener">See more of my work</a>
+    </div>
+  </div>
+  <p class="foot">Andres Marte, @visuxlize, github.com/visuxlize, visuxlize.github.io/portfolio</p>
+</section>
+
+<script>
+  // Lightweight scroll reveal, respects reduced motion.
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
