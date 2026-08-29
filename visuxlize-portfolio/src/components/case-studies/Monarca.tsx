@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, ShoppingCart, Repeat, PackagePlus, LineChart } from 'lucide-react';
+import {
+  ArrowLeft, ExternalLink, ShoppingCart, Repeat, PackagePlus, LineChart,
+  Code2, Layers, Smartphone, Rocket,
+} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import monarcaHome from '../../Images/monarca-home.jpg';
 
@@ -30,6 +33,17 @@ function StatCard({ value, label, sub }: { value: string; label: string; sub?: s
   );
 }
 
+function DiagramWrap({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--diagram-bg)', border: '1px solid var(--diagram-border)' }}>
+      <div className="px-6 pt-5 pb-0">
+        <p style={{ color: 'var(--diagram-title)', fontSize: '10px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' }}>{title}</p>
+      </div>
+      <div className="p-6 pt-4">{children}</div>
+    </div>
+  );
+}
+
 const capabilities = [
   { Icon: ShoppingCart, title: 'PDP CRO', desc: 'Buy box, price, and social proof above the fold. Objection handling with a trust row, founder story, and FAQ.' },
   { Icon: Repeat, title: 'Subscribe & Save', desc: 'Framed as the default option, discount calculated live, wired in through a standard Shopify subscriptions app.' },
@@ -43,6 +57,32 @@ const matrix = [
   { need: 'Testing optimization', have: 'A documented A/B test on the subscribe default, with a hypothesis, primary metric, guardrails, and a stopping rule.' },
   { need: 'Analytics and tracking', have: 'GA4 and Meta pixel setup with clean events for one-time versus subscription, so every test is measurable.' },
   { need: 'Mobile UX', have: 'Mobile-first layout with a sticky add-to-cart that keeps the CTA one tap away through the whole page.' },
+];
+
+const shopifyImplementation = [
+  { n: '01', Icon: Code2, code: 'Custom OS 2.0 section — Liquid + JSON schema', outcome: 'Buy box, subscribe toggle, and price break render as one block, editable in the theme editor with no redeploy.' },
+  { n: '02', Icon: Layers, code: 'Section blocks + settings schema', outcome: 'Trust row, founder story, and FAQ become merchant-editable modules, so copy changes don\'t need a developer.' },
+  { n: '03', Icon: Repeat, code: 'Subscriptions app — Selling Plan API', outcome: 'The subscribe and save discount recalculates live in the DOM the instant the buyer toggles it.' },
+  { n: '04', Icon: PackagePlus, code: 'Bundle app + custom price logic', outcome: 'Starter Ritual prices as one set, not three line items, protecting margin on the hero product.' },
+  { n: '05', Icon: Smartphone, code: 'Vanilla JS, no framework', outcome: 'The sticky mobile add-to-cart bar stays inside Dawn\'s performance budget.' },
+  { n: '06', Icon: LineChart, code: 'Section-level script tags — GA4 + Meta', outcome: 'Every add-to-cart and subscribe toggle fires a typed event, split by one-time vs. subscription.' },
+];
+
+const abTest = [
+  { label: 'Hypothesis', detail: 'Pre-selecting subscribe and save, instead of one-time, lifts the subscription rate without hurting overall conversion or refund rate.' },
+  { label: 'Variants', detail: 'Control A: one-time purchase pre-selected. Variant B: subscribe and save pre-selected. Split 50/50, held per visitor across their visit.' },
+  { label: 'Primary metric', detail: 'Subscription rate — subscription orders divided by total orders.' },
+  { label: 'Guardrails', detail: 'Overall conversion rate, average order value, and 30-day refund or cancel rate. A win means the primary moves while none of these move against it.' },
+  { label: 'Duration & stopping rule', detail: 'Run until each arm hits its sample size, or a fixed two-week window, whichever is later. No stopping early on a lucky swing.' },
+  { label: 'Reading the result', detail: 'A two-proportion significance check. Ship the variant only if the lift is statistically real and big enough to matter, with guardrails intact.' },
+];
+
+const roadmap = [
+  { status: 'Next', title: 'Post-purchase upsell', desc: 'One-click add-on on the order confirmation page, the next AOV lever after the bundle.' },
+  { status: 'Next', title: 'Cart drawer bundle recommender', desc: 'Surface the Starter Ritual bundle from the cart, not only the product page.' },
+  { status: 'Planned', title: 'Priority Club sync', desc: 'Tie Monarca\'s existing loyalty program into subscription orders, so recurring buyers earn points automatically.' },
+  { status: 'Planned', title: 'Klaviyo lifecycle flows', desc: 'Abandoned cart, subscription win-back, and a replenishment reminder timed to the product\'s use-up date.' },
+  { status: 'Exploring', title: 'Affiliate dashboard', desc: 'A lightweight portal so partners can see clicks, conversions, and payouts without email back-and-forth.' },
 ];
 
 const Monarca: React.FC = () => {
@@ -154,6 +194,35 @@ const Monarca: React.FC = () => {
 
         <div className="my-14 h-px bg-[var(--border)]" />
 
+        {/* ── Custom Shopify Implementation ── */}
+        <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="mb-14">
+          <motion.div variants={fade}>
+            <SectionLabel>Under the Hood</SectionLabel>
+            <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-4">Custom code, tailored to the design</h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+              Every design decision on the page maps to a specific piece of custom Shopify code, not a stock
+              app widget bolted on top.
+            </p>
+          </motion.div>
+          <motion.div variants={fade}>
+            <DiagramWrap title="Code → Design Implementation">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {shopifyImplementation.map(({ n, Icon, code, outcome }) => (
+                  <div key={n} className="rounded-xl p-4" style={{ background: 'var(--diagram-node-fill)', border: '1px solid var(--diagram-band-stroke)' }}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Icon size={14} style={{ color: ACCENT }} strokeWidth={2} />
+                      <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: ACCENT }}>{code}</p>
+                    </div>
+                    <p className="text-xs leading-snug" style={{ color: 'var(--diagram-node-text)' }}>{outcome}</p>
+                  </div>
+                ))}
+              </div>
+            </DiagramWrap>
+          </motion.div>
+        </motion.section>
+
+        <div className="my-14 h-px bg-[var(--border)]" />
+
         {/* ── Capability Matrix ── */}
         <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="mb-14">
           <motion.div variants={fade}>
@@ -167,6 +236,65 @@ const Monarca: React.FC = () => {
                 <span className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{row.have}</span>
               </div>
             ))}
+          </motion.div>
+        </motion.section>
+
+        <div className="my-14 h-px bg-[var(--border)]" />
+
+        {/* ── The Experiment ── */}
+        <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="mb-14">
+          <motion.div variants={fade}>
+            <SectionLabel>The Experiment</SectionLabel>
+            <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-4">One clean A/B test, run properly</h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+              Testing is a discipline, not a guess. This is the documented test built into the demo, written the
+              way a DTC team would actually run it. Honest note: a demo store has little traffic, so this shows
+              correct methodology rather than proven numbers.
+            </p>
+          </motion.div>
+          <motion.div variants={fade} className="rounded-2xl border border-[var(--border)] overflow-hidden">
+            {abTest.map((row, i) => (
+              <div key={row.label} className={`grid grid-cols-1 gap-2 p-5 sm:grid-cols-[220px_1fr] sm:gap-6 ${i > 0 ? 'border-t border-[var(--border)]' : ''}`}>
+                <span className="text-sm font-semibold" style={{ color: ACCENT }}>{row.label}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{row.detail}</span>
+              </div>
+            ))}
+          </motion.div>
+        </motion.section>
+
+        <div className="my-14 h-px bg-[var(--border)]" />
+
+        {/* ── Roadmap ── */}
+        <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="mb-14">
+          <motion.div variants={fade}>
+            <SectionLabel>What's Next</SectionLabel>
+            <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-4">Beyond the demo</h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+              The proposal scoped a working PDP and bundle. Here's where the build goes from there.
+            </p>
+          </motion.div>
+          <motion.div variants={fade}>
+            <DiagramWrap title="Future Additions">
+              <div className="space-y-2">
+                {roadmap.map((item) => (
+                  <div key={item.title} className="flex flex-col gap-1 rounded-lg p-3.5 sm:flex-row sm:items-start sm:gap-4" style={{ background: 'var(--diagram-node-fill)', border: '1px solid var(--diagram-band-stroke)' }}>
+                    <span
+                      className="inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+                      style={item.status === 'Next'
+                        ? { color: ACCENT, background: `${ACCENT}1a`, border: `1px solid ${ACCENT}4d` }
+                        : { color: 'var(--diagram-node-sub)', background: 'transparent', border: '1px solid var(--diagram-band-stroke)' }}
+                    >
+                      <Rocket size={10} strokeWidth={2.5} aria-hidden />
+                      {item.status}
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: 'var(--diagram-node-text)' }}>{item.title}</p>
+                      <p className="text-xs leading-snug mt-0.5" style={{ color: 'var(--diagram-node-sub)' }}>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </DiagramWrap>
           </motion.div>
         </motion.section>
 
